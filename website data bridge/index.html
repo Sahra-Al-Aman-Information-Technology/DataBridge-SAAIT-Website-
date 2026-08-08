@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataBridge | Enterprise Multi-Source Data Ingestion & Pipeline Orchestration</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="DataBridge automates mission-critical ETL, delta change capture, dynamic warehouse DDL alignment, and Power BI semantic refreshes across Oracle, SQL Server, and cloud data warehouses without custom scripting.">
+  <meta name="keywords" content="DataBridge, Enterprise ETL, Data Ingestion, Pipeline Orchestration, Oracle Ingestion, SQL Server ETL, Snowflake Pipeline, Power BI XMLA Refresh, Automated DDL Alignment, Data Warehouse">
+  <meta name="author" content="DataBridge Systems Inc.">
+  <meta name="robots" content="index, follow">
+
+  <!-- OpenGraph / Social Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://databridge.io/">
+  <meta property="og:title" content="DataBridge — Enterprise Multi-Source Data Ingestion & Pipeline Orchestration">
+  <meta property="og:description" content="One Platform. Every Data Source. Zero Manual Scripting. High-throughput data ingestion across Oracle, SQL Server, Snowflake, and Power BI.">
+  <meta property="og:image" content="https://databridge.io/og-image.png">
+
+  <!-- Twitter Card Meta -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DataBridge — Enterprise Data Ingestion Engine">
+  <meta name="twitter:description" content="Automate enterprise data pipelines across Oracle, SQL Server, Snowflake, and Power BI without brittle scripting.">
+
+  <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Core CSS Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- JSON-LD Structured Data for Enterprise Software Application -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "DataBridge",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Cloud, On-Premises, Docker, Kubernetes",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Enterprise Multi-Source Data Ingestion & Pipeline Orchestration Platform automating Oracle and SQL Server data synchronization to cloud data warehouses and Power BI."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <span class="announcement-badge">NEW v3.4</span>
+    <span>Automated Snowflake DDL Evolution & Direct Power BI XMLA Refresh Engine is live.</span>
+    <a href="#capabilities" class="announcement-link">Explore Capabilities →</a>
+  </div>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="#" class="logo-brand" aria-label="DataBridge Home">
+        <div class="logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="8" height="8" rx="2"></rect>
+            <rect x="14" y="14" width="8" height="8" rx="2"></rect>
+            <path d="M6 10v4a4 4 0 0 0 4 4h4"></path>
+            <circle cx="6" cy="10" r="1.5" fill="#22D3EE"></circle>
+            <circle cx="14" cy="18" r="1.5" fill="#22D3EE"></circle>
+          </svg>
+        </div>
+        <span>DataBridge</span>
+        <span class="logo-tag">ENTERPRISE</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="#problem" class="nav-link">The Problem</a>
+        <a href="#capabilities" class="nav-link">Capabilities</a>
+        <a href="#architecture" class="nav-link">Architecture</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#roi" class="nav-link">ROI & Value</a>
+        <a href="#security" class="nav-link">Security Vault</a>
+      </nav>
+
+      <!-- Navbar Actions -->
+      <div class="nav-actions">
+        <div class="system-status-pill" title="Core Engine Operational">
+          <span class="status-dot"></span>
+          <span>SLA 99.999%</span>
+        </div>
+        <a href="#demo" class="btn btn-primary btn-sm">
+          Request Demo
+        </a>
+        <button class="mobile-menu-btn" aria-label="Open Navigation Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay & Menu -->
+  <div class="drawer-overlay"></div>
+  <aside class="mobile-drawer" aria-label="Mobile Navigation">
+    <div class="drawer-header">
+      <div class="logo-brand">
+        <span>DataBridge</span>
+      </div>
+      <button class="drawer-close-btn btn btn-ghost btn-sm" aria-label="Close Navigation Menu">✕</button>
+    </div>
+    <div class="drawer-links">
+      <a href="#problem" class="drawer-link">The Problem</a>
+      <a href="#capabilities" class="drawer-link">Capabilities</a>
+      <a href="#architecture" class="drawer-link">Architecture</a>
+      <a href="#how-it-works" class="drawer-link">How It Works</a>
+      <a href="#roi" class="drawer-link">ROI & Value</a>
+      <a href="#security" class="drawer-link">Security Vault</a>
+      <a href="#demo" class="drawer-link text-cyan">Request Demo</a>
+    </div>
+  </aside>
+
+  <!-- High-Tech Initial Page Preloader -->
+  <div class="page-preloader" id="preloader">
+    <div class="preloader-content">
+      <div class="preloader-icon-wrap">
+        <div class="logo-icon" style="width: 52px; height: 52px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="8" height="8" rx="2"></rect>
+            <rect x="14" y="14" width="8" height="8" rx="2"></rect>
+            <path d="M6 10v4a4 4 0 0 0 4 4h4"></path>
+            <circle cx="6" cy="10" r="1.5" fill="#22D3EE"></circle>
+            <circle cx="14" cy="18" r="1.5" fill="#22D3EE"></circle>
+          </svg>
+        </div>
+      </div>
+      <div class="preloader-brand">
+        <span>DataBridge</span>
+        <span class="logo-tag">ENTERPRISE</span>
+      </div>
+      <div class="preloader-bar-bg">
+        <div class="preloader-bar-fill" id="preloader-bar"></div>
+      </div>
+      <div class="preloader-status">
+        <span class="status-dot"></span>
+        <span id="preloader-status-text">INITIALIZING ORCHESTRATION ENGINE...</span>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ========================================================================
+         HERO SECTION: One Platform. Every Data Source. Zero Manual Scripting.
+         ======================================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <!-- Left Hero Column -->
+          <div class="hero-content">
+            <div class="hero-badge hero-animate-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+              <span>ENTERPRISE PIPELINE ORCHESTRATION</span>
+            </div>
+
+            <h1 class="hero-title hero-animate-title">
+              One Platform. <br>
+              <span class="text-gradient-cyan">Every Data Source.</span> <br>
+              Zero Manual Scripting.
+            </h1>
+
+            <p class="hero-subtitle hero-animate-subtitle">
+              DataBridge automates mission-critical ETL, delta change capture, dynamic warehouse DDL alignment, and Power BI semantic dataset refreshes across Oracle, SQL Server, and cloud warehouses — eliminating brittle Python scripts and plain-text credentials forever.
+            </p>
+
+            <div class="hero-ctas hero-animate-ctas">
+              <a href="#demo" class="btn btn-primary btn-lg" id="hero-cta-demo">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+                Request a Demo
+              </a>
+              <a href="#architecture" class="btn btn-secondary btn-lg" id="hero-cta-arch">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                  <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                  <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                </svg>
+                View Architecture
+              </a>
+            </div>
+
+            <!-- Metric Ticker Ribbon -->
+            <div class="hero-metrics hero-animate-metrics">
+              <div class="metric-item">
+                <span class="metric-value counter-item" data-target="50" data-suffix="M+">50M+</span>
+                <span class="metric-label">Rows Extracted / Hr</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-value counter-item" data-target="0" data-suffix="%">0%</span>
+                <span class="metric-label">Type Mismatches</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-value counter-item" data-target="99.999" data-decimals="3" data-suffix="%">99.999%</span>
+                <span class="metric-label">Orchestration SLA</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-value">AES-256</span>
+                <span class="metric-label">Hardware Vault</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Hero Column: Animated Interactive Pipeline Diagram -->
+          <div class="hero-visual-wrapper hero-animate-visual">
+            <div class="hero-visual-card">
+              <div class="pipeline-terminal-header">
+                <div class="terminal-dots">
+                  <span class="terminal-dot red"></span>
+                  <span class="terminal-dot yellow"></span>
+                  <span class="terminal-dot green"></span>
+                </div>
+                <div class="terminal-title">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  <span>LIVE ACTIVE DATA STREAM // ORCHESTRATOR CLUSTER</span>
+                </div>
+                <span class="logo-tag">ACTIVE SYNC</span>
+              </div>
+
+              <!-- Animated SVG Pipeline Visualization -->
+              <svg class="pipeline-diagram-svg" viewBox="0 0 600 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#06B6D4" />
+                    <stop offset="100%" stop-color="#22D3EE" />
+                  </linearGradient>
+                  <linearGradient id="indigoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#6366F1" />
+                    <stop offset="100%" stop-color="#818CF8" />
+                  </linearGradient>
+                  <filter id="glowCyan" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="4" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                  </filter>
+                </defs>
+
+                <!-- Connecting Stream Paths with Active Flow -->
+                <!-- Path 1: Source DBs to DataBridge Engine -->
+                <path d="M 120 70 C 180 70, 200 135, 250 135" stroke="rgba(6, 182, 212, 0.3)" stroke-width="2.5" fill="none" />
+                <path d="M 120 145 C 180 145, 200 140, 250 140" stroke="rgba(6, 182, 212, 0.3)" stroke-width="2.5" fill="none" />
+                <path d="M 120 220 C 180 220, 200 145, 250 145" stroke="rgba(6, 182, 212, 0.3)" stroke-width="2.5" fill="none" />
+
+                <!-- Flowing Animated Particles -->
+                <path d="M 120 70 C 180 70, 200 135, 250 135" stroke="#22D3EE" stroke-width="2.5" stroke-dasharray="6 6" class="stream-path-active" fill="none" />
+                <path d="M 120 145 C 180 145, 200 140, 250 140" stroke="#22D3EE" stroke-width="2.5" stroke-dasharray="6 6" class="stream-path-active" fill="none" />
+                <path d="M 120 220 C 180 220, 200 145, 250 145" stroke="#22D3EE" stroke-width="2.5" stroke-dasharray="6 6" class="stream-path-active" fill="none" />
+
+                <!-- Path 2: DataBridge Engine to Warehouse -->
+                <path d="M 390 135 C 430 135, 440 85, 475 85" stroke="rgba(99, 102, 241, 0.3)" stroke-width="2.5" fill="none" />
+                <path d="M 390 145 C 430 145, 440 205, 475 205" stroke="rgba(99, 102, 241, 0.3)" stroke-width="2.5" fill="none" />
+                <path d="M 390 135 C 430 135, 440 85, 475 85" stroke="#818CF8" stroke-width="2.5" stroke-dasharray="6 6" class="stream-path-active" fill="none" />
+                <path d="M 390 145 C 430 145, 440 205, 475 205" stroke="#818CF8" stroke-width="2.5" stroke-dasharray="6 6" class="stream-path-active" fill="none" />
+
+                <!-- SOURCE NODES (Left Tier) -->
+                <!-- Node 1: Oracle -->
+                <g class="pulse-node">
+                  <rect x="20" y="48" width="100" height="44" rx="7" fill="#0F172A" stroke="#06B6D4" stroke-width="1.5" />
+                  <circle cx="34" cy="70" r="4.5" fill="#EF4444" />
+                  <text x="46" y="67" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700">Oracle 19c</text>
+                  <text x="46" y="80" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="7.5">GL_JE_LINES</text>
+                </g>
+
+                <!-- Node 2: SQL Server -->
+                <g class="pulse-node">
+                  <rect x="20" y="122" width="100" height="44" rx="7" fill="#0F172A" stroke="#06B6D4" stroke-width="1.5" />
+                  <circle cx="34" cy="144" r="4.5" fill="#3B82F6" />
+                  <text x="46" y="141" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700">SQL Server</text>
+                  <text x="46" y="154" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="7.5">FactOrders</text>
+                </g>
+
+                <!-- Node 3: PostgreSQL -->
+                <g class="pulse-node">
+                  <rect x="20" y="196" width="100" height="44" rx="7" fill="#0F172A" stroke="#06B6D4" stroke-width="1.5" />
+                  <circle cx="34" cy="218" r="4.5" fill="#38BDF8" />
+                  <text x="46" y="215" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700">Postgres 16</text>
+                  <text x="46" y="228" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="7.5">UserEvents</text>
+                </g>
+
+                <!-- CENTER NODE: DataBridge Orchestrator -->
+                <g filter="url(#glowCyan)">
+                  <rect x="250" y="95" width="140" height="85" rx="10" fill="#0B132B" stroke="#22D3EE" stroke-width="1.8" />
+                  <rect x="255" y="100" width="130" height="22" rx="4" fill="rgba(6, 182, 212, 0.15)" />
+                  <text x="320" y="115" fill="#22D3EE" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="800">DATABRIDGE CORE</text>
+                  <text x="264" y="136" fill="#F8FAFC" font-family="'JetBrains Mono', monospace" font-size="8">• Auto Schema Profiler</text>
+                  <text x="264" y="150" fill="#F8FAFC" font-family="'JetBrains Mono', monospace" font-size="8">• High-Water Delta Engine</text>
+                  <text x="264" y="164" fill="#34D399" font-family="'JetBrains Mono', monospace" font-size="8">✓ Auto DDL Dynamic Sync</text>
+                </g>
+
+                <!-- DESTINATION NODES (Right Tier) -->
+                <!-- Node 4: Snowflake / Warehouse -->
+                <g class="pulse-node">
+                  <rect x="475" y="62" width="110" height="46" rx="7" fill="#0F172A" stroke="#818CF8" stroke-width="1.5" />
+                  <circle cx="489" cy="85" r="4.5" fill="#38BDF8" />
+                  <text x="500" y="81" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700">Snowflake</text>
+                  <text x="500" y="94" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="7.5">PROD_WAREHOUSE</text>
+                </g>
+
+                <!-- Node 5: Power BI Semantic Refreshes -->
+                <g class="pulse-node">
+                  <rect x="475" y="180" width="110" height="46" rx="7" fill="#0F172A" stroke="#F59E0B" stroke-width="1.5" />
+                  <circle cx="489" cy="203" r="4.5" fill="#F59E0B" />
+                  <text x="500" y="199" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700">Power BI</text>
+                  <text x="500" y="212" fill="#34D399" font-family="'JetBrains Mono', monospace" font-size="7.5">XMLA Auto Refresh</text>
+                </g>
+              </svg>
+
+              <!-- Telemetry Status Strip -->
+              <div class="pipeline-telemetry-strip">
+                <div class="telemetry-item">
+                  <span>Stream Protocol:</span>
+                  <span class="telemetry-val">PyArrow / JDBC</span>
+                </div>
+                <div class="telemetry-item">
+                  <span>Ingestion Rate:</span>
+                  <span class="telemetry-val" id="sim-throughput">142.5 MB/s</span>
+                </div>
+                <div class="telemetry-item">
+                  <span>Data Loss:</span>
+                  <span class="telemetry-val" style="color: #34D399;">0.0000%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         THE PROBLEM SECTION: Chaos vs. Control (Before vs. After)
+         ======================================================================== -->
+    <section class="section-wrapper" id="problem">
+      <div class="container">
+        <div class="section-header" data-reveal="fade-up">
+          <span class="section-badge indigo">THE PIPELINE BOTTLENECK</span>
+          <h2>The Legacy Scripting Trap vs. <span class="text-gradient-cyan">DataBridge Control</span></h2>
+          <p class="section-description">
+            Data teams spend up to 70% of their engineering cycles fixing broken cron scripts, unhandled DDL changes, and stale Power BI reports. Here is why ad-hoc ETL breaks at scale.
+          </p>
+        </div>
+
+        <div class="chaos-control-grid">
+          
+          <!-- Chaos Card (Before DataBridge) -->
+          <div class="comparison-card chaos" data-reveal="fade-right">
+            <span class="card-badge bad">❌ LEGACY AD-HOC ETL (THE CHAOS)</span>
+            <h3>Brittle, High-Risk Custom Scripts</h3>
+            <p class="text-muted">Handcrafted Python, SSIS packages, and cron runners that constantly require emergency patches.</p>
+
+            <div class="comparison-list">
+              <div class="comparison-item">
+                <div class="comparison-icon bad">✕</div>
+                <div class="comparison-text">
+                  <h4>Silent Schema Breakages</h4>
+                  <p>Upstream DBAs add or alter a column in Oracle/SQL Server, causing downstream staging loads to fail silently.</p>
+                </div>
+              </div>
+
+              <div class="comparison-item">
+                <div class="comparison-icon bad">✕</div>
+                <div class="comparison-text">
+                  <h4>Plain-Text Credential Vulnerabilities</h4>
+                  <p>Database passwords stored in unencrypted `.env` files, config scripts, and developer workstations.</p>
+                </div>
+              </div>
+
+              <div class="comparison-item">
+                <div class="comparison-icon bad">✕</div>
+                <div class="comparison-text">
+                  <h4>Severe Production DB Strain</h4>
+                  <p>Unoptimized full table scans lock transactional ERP databases during peak business hours.</p>
+                </div>
+              </div>
+
+              <div class="comparison-item">
+                <div class="comparison-icon bad">✕</div>
+                <div class="comparison-text">
+                  <h4>Stale Executive Dashboards</h4>
+                  <p>Business intelligence teams wait hours for manual data pipeline re-runs after unexpected ETL halts.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Control Card (With DataBridge) -->
+          <div class="comparison-card control" data-reveal="fade-left">
+            <span class="card-badge good">✓ DATABRIDGE ORCHESTRATION (THE CONTROL)</span>
+            <h3>Automated, Resilient & Deterministic</h3>
+            <p class="text-muted">Enterprise-grade multi-source ingestion engine with zero code maintenance and sub-second failover.</p>
+
+            <div class="comparison-list">
+              <div class="comparison-item">
+                <div class="comparison-icon good">✓</div>
+                <div class="comparison-text">
+                  <h4>Dynamic Auto DDL Alignment</h4>
+                  <p>Non-destructive schema evolution detects column additions and type widenings, syncing warehouse tables instantly.</p>
+                </div>
+              </div>
+
+              <div class="comparison-item">
+                <div class="comparison-icon good">✓</div>
+                <div class="comparison-text">
+                  <h4>AES-256 Encrypted Credential Vault</h4>
+                  <p>Zero plaintext secrets. Hardware-level cryptographic isolation with role-based JWT access controls.</p>
+                </div>
+              </div>
+
+              <div class="comparison-item">
+                <div class="comparison-icon good">✓</div>
+                <div class="comparison-text">
+                  <h4>High-Watermark Delta Ingestion</h4>
+                  <p>Extracts only updated rows using indexed timestamps and change tracking, reducing network load by 80%.</p>
+                </div>
+              </div>
+
+              <div class="comparison-item">
+                <div class="comparison-icon good">✓</div>
+                <div class="comparison-text">
+                  <h4>Automated Power BI XMLA Triggers</h4>
+                  <p>Downstream semantic models refresh the moment ingestion validates, delivering real-time decision intelligence.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         CORE CAPABILITIES GRID: 5 Feature Blocks
+         ======================================================================== -->
+    <section class="section-wrapper" id="capabilities">
+      <div class="container">
+        <div class="section-header" data-reveal="fade-up">
+          <span class="section-badge">ENGINEERING-GRADE INFRASTRUCTURE</span>
+          <h2>Architected for Zero-Downtime <span class="text-gradient-cyan">Data Mobility</span></h2>
+          <p class="section-description">
+            Built from the ground up for high-throughput enterprise environments with deep Oracle, SQL Server, and cloud warehouse synergies.
+          </p>
+        </div>
+
+        <div class="capabilities-grid">
+          
+          <!-- Capability 1: Multi-Source Connection & Schema Autodiscovery -->
+          <div class="capability-card featured-span" data-reveal="fade-up">
+            <div class="capability-icon-box">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+              </svg>
+            </div>
+            <h3 class="capability-title">Multi-Source Connection & Schema Autodiscovery</h3>
+            <p class="capability-desc">
+              Connect to Oracle (11g through 21c), Microsoft SQL Server, PostgreSQL, MySQL, and legacy ERP systems in seconds. DataBridge introspects database catalogs, primary keys, foreign constraints, partition indexes, and translates proprietary data types into standard cloud-native schemas automatically.
+            </p>
+            <div class="capability-interactive-preview">
+              <code>&gt; INTROSPECT_SOURCE(driver="Oracle-21c", catalog="FIN_PROD") <br>
+              &gt; [SUCCESS] 428 Tables Profiled | Primary Keys Mapped | Zero Data Loss</code>
+            </div>
+            <div class="capability-tags">
+              <span class="capability-tag">Oracle OCI</span>
+              <span class="capability-tag">MS SQL ODBC 18</span>
+              <span class="capability-tag">Postgres WAL</span>
+              <span class="capability-tag">Type Translation</span>
+            </div>
+          </div>
+
+          <!-- Capability 2: Intelligent Extraction Strategies -->
+          <div class="capability-card" data-reveal="fade-up" style="transition-delay: 0.15s;">
+            <div class="capability-icon-box">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+              </svg>
+            </div>
+            <h3 class="capability-title">Intelligent High-Performance Extraction</h3>
+            <p class="capability-desc">
+              Choose from <strong>Full Snapshot Load</strong>, <strong>High-Watermark Delta Sync</strong>, <strong>Smart Merge Override</strong>, and <strong>Bulk-Streamed Staging</strong>. PyArrow in-memory serialization eliminates disk I/O bottlenecks.
+            </p>
+            <div class="capability-tags">
+              <span class="capability-tag">Delta Capture</span>
+              <span class="capability-tag">PyArrow Buffering</span>
+              <span class="capability-tag">Collision Resolution</span>
+            </div>
+          </div>
+
+          <!-- Capability 3: Automated Warehouse DDL Alignment -->
+          <div class="capability-card" data-reveal="fade-up">
+            <div class="capability-icon-box">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <h3 class="capability-title">Automated Warehouse DDL Alignment</h3>
+            <p class="capability-desc">
+              Never let an upstream column change crash your pipeline. When source tables mutate, DataBridge issues non-destructive DDL alterations to target Snowflake, BigQuery, or Databricks tables with zero pipeline stoppage.
+            </p>
+            <div class="capability-tags">
+              <span class="capability-tag">Schema Drift Detection</span>
+              <span class="capability-tag">Safe ALTER TABLE</span>
+              <span class="capability-tag">Zero Pipeline Halts</span>
+            </div>
+          </div>
+
+          <!-- Capability 4: Post-Ingestion Orchestration & Power BI -->
+          <div class="capability-card" data-reveal="fade-up" style="transition-delay: 0.15s;">
+            <div class="capability-icon-box">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <h3 class="capability-title">Post-Ingestion & Power BI Triggers</h3>
+            <p class="capability-desc">
+              Execute post-load SQL transformations and stored procedures the moment staging completes. Automatically triggers Power BI dataset XMLA/REST API refreshes so executive analytics are always synchronized.
+            </p>
+            <div class="capability-tags">
+              <span class="capability-tag">Power BI XMLA</span>
+              <span class="capability-tag">Stored Procedure Cascade</span>
+              <span class="capability-tag">Data Quality Checks</span>
+            </div>
+          </div>
+
+          <!-- Capability 5: Enterprise-Grade Security & Monitoring -->
+          <div class="capability-card" data-reveal="fade-up" style="transition-delay: 0.3s;">
+            <div class="capability-icon-box">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <h3 class="capability-title">Enterprise Security & Compliance</h3>
+            <p class="capability-desc">
+              Strict multi-tenant architecture with JWT token authentication, AES-256 credential encryption vault, role-based access control (RBAC), and immutable audit logs ready for SOC2, HIPAA, and ISO 27001 reviews.
+            </p>
+            <div class="capability-tags">
+              <span class="capability-tag">AES-256 Vault</span>
+              <span class="capability-tag">JWT RBAC</span>
+              <span class="capability-tag">SOC2 Ready</span>
+              <span class="capability-tag">Audit Streaming</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         ARCHITECTURE SECTION: Deep Dive Pipeline Blueprint
+         ======================================================================== -->
+    <section class="section-wrapper" id="architecture">
+      <div class="container">
+        <div class="section-header" data-reveal="fade-up">
+          <span class="section-badge emerald">TECHNICAL BLUEPRINT</span>
+          <h2>Enterprise-Grade <span class="text-gradient-cyan">Pipeline Architecture</span></h2>
+          <p class="section-description">
+            A battle-tested distributed orchestrator bridging transactional enterprise databases, high-performance streaming engines, and downstream business intelligence.
+          </p>
+        </div>
+
+        <div class="architecture-box" data-reveal="zoom-in">
+          <div class="architecture-diagram-wrapper">
+            
+            <!-- Tier 1: Source Tier -->
+            <div class="arch-tier-card" data-reveal="fade-up">
+              <span class="tier-number">TIER 01</span>
+              <h3 class="tier-title">Enterprise Sources</h3>
+              <div class="tier-items-list">
+                <div class="tier-item-pill">
+                  <span>Oracle Database</span>
+                  <span class="sub">11g/19c/21c</span>
+                </div>
+                <div class="tier-item-pill">
+                  <span>MS SQL Server</span>
+                  <span class="sub">2016-2022</span>
+                </div>
+                <div class="tier-item-pill">
+                  <span>PostgreSQL / MySQL</span>
+                  <span class="sub">Native Driver</span>
+                </div>
+                <div class="tier-item-pill">
+                  <span>Legacy ERP Systems</span>
+                  <span class="sub">ODBC / JDBC</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tier 2: DataBridge Control & Ingestion Plane -->
+            <div class="arch-tier-card featured">
+              <span class="tier-number" style="color: #22D3EE;">TIER 02 // ORCHESTRATION</span>
+              <h3 class="tier-title text-cyan">DataBridge Core</h3>
+              <div class="tier-items-list">
+                <div class="tier-item-pill" style="border-color: rgba(6, 182, 212, 0.4);">
+                  <span>React 19 Admin Portal</span>
+                  <span class="sub">Vite UI</span>
+                </div>
+                <div class="tier-item-pill" style="border-color: rgba(6, 182, 212, 0.4);">
+                  <span>Flask 3 API Gateway</span>
+                  <span class="sub">REST / Auth</span>
+                </div>
+                <div class="tier-item-pill" style="border-color: rgba(6, 182, 212, 0.4);">
+                  <span>SQLAlchemy 2.0 Engine</span>
+                  <span class="sub">Introspection</span>
+                </div>
+                <div class="tier-item-pill" style="border-color: rgba(6, 182, 212, 0.4);">
+                  <span>Streaming Worker Pods</span>
+                  <span class="sub">PyArrow</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tier 3: Target Warehouse Tier -->
+            <div class="arch-tier-card">
+              <span class="tier-number">TIER 03</span>
+              <h3 class="tier-title">Data Warehouse</h3>
+              <div class="tier-items-list">
+                <div class="tier-item-pill">
+                  <span>Snowflake RAW/PROD</span>
+                  <span class="sub">Zero-Copy</span>
+                </div>
+                <div class="tier-item-pill">
+                  <span>Databricks Delta</span>
+                  <span class="sub">Parquet Lake</span>
+                </div>
+                <div class="tier-item-pill">
+                  <span>Google BigQuery</span>
+                  <span class="sub">Stream API</span>
+                </div>
+                <div class="tier-item-pill">
+                  <span>Azure Synapse / Fabric</span>
+                  <span class="sub">OneLake</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tier 4: Business Intelligence & BI Refreshes -->
+            <div class="arch-tier-card">
+              <span class="tier-number">TIER 04</span>
+              <h3 class="tier-title">BI & Analytics</h3>
+              <div class="tier-items-list">
+                <div class="tier-item-pill">
+                  <span>Power BI Service</span>
+                  <span class="sub">XMLA Trigger</span>
+                </div>
+                <div class="tier-item-pill">
+                  <span>Semantic Models</span>
+                  <span class="sub">Auto-Refreshed</span>
+                </div>
+                <div class="tier-item-pill">
+                  <span>Executive Dashboards</span>
+                  <span class="sub">Zero Stale Data</span>
+                </div>
+                <div class="tier-item-pill">
+                  <span>Downstream Webhooks</span>
+                  <span class="sub">REST Events</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Tech Stack Badges Strip -->
+          <div class="tech-stack-strip">
+            <div class="tech-stack-title">Certified Enterprise Technologies Powering DataBridge</div>
+            <div class="tech-badges-row">
+              <div class="tech-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <circle cx="12" cy="12" r="4"></circle>
+                </svg>
+                <span>React 19 & Vite</span>
+              </div>
+              <div class="tech-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                <span>Flask 3 API</span>
+              </div>
+              <div class="tech-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2">
+                  <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                </svg>
+                <span>SQLAlchemy 2.0</span>
+              </div>
+              <div class="tech-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F43F5E" stroke-width="2">
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <path d="M12 7v5l3 3"></path>
+                </svg>
+                <span>Oracle OCI Thin/Thick</span>
+              </div>
+              <div class="tech-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+                <span>Docker & Kubernetes</span>
+              </div>
+              <div class="tech-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                </svg>
+                <span>PyArrow Zero-Copy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         INTERACTIVE LIVE PIPELINE SIMULATOR / TERMINAL SANDBOX
+         ======================================================================== -->
+    <section class="section-wrapper" id="simulator">
+      <div class="container">
+        <div class="section-header" data-reveal="fade-up">
+          <span class="section-badge">INTERACTIVE TESTBENCH</span>
+          <h2>Simulate a Live <span class="text-gradient-cyan">Pipeline Execution</span></h2>
+          <p class="section-description">
+            Experience how DataBridge executes schema introspection, delta streaming, DDL auto-alignment, and Power BI refreshes in real-time.
+          </p>
+        </div>
+
+        <div class="simulator-wrapper" data-reveal="zoom-in">
+          <div class="simulator-header">
+            <div class="terminal-dots">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
+            </div>
+            <div class="terminal-title">
+              <span>DATABRIDGE PIPELINE SANDBOX // v3.4</span>
+            </div>
+            <span class="log-tag success" id="sim-status-badge">READY FOR RUN</span>
+          </div>
+
+          <div class="simulator-controls">
+            <div class="control-group">
+              <label class="control-label" for="sim-source-db">Source Database</label>
+              <select class="control-select" id="sim-source-db">
+                <option value="oracle">Oracle 19c Enterprise (ERP Financials)</option>
+                <option value="mssql">MS SQL Server 2022 (CRM Sales)</option>
+                <option value="postgres">PostgreSQL 16 (Digital Transactions)</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label" for="sim-strategy">Ingestion Strategy</label>
+              <select class="control-select" id="sim-strategy">
+                <option value="delta">High-Watermark Delta Sync</option>
+                <option value="smart-merge">Smart Merge Override (Deduplicate)</option>
+                <option value="full">Full Snapshot Refresh</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label" for="sim-target-wh">Target Data Warehouse</label>
+              <select class="control-select" id="sim-target-wh">
+                <option value="snowflake">Snowflake (RAW_STAGING_DB)</option>
+                <option value="databricks">Databricks Delta Lake (Silver Tier)</option>
+                <option value="synapse">Azure Synapse OneLake</option>
+              </select>
+            </div>
+
+            <button class="btn btn-primary" id="btn-run-simulation" style="height: 42px;">
+              <span>▶ Run Live Pipeline Simulation</span>
+            </button>
+          </div>
+
+          <!-- Live Terminal Output Stream -->
+          <div class="simulator-terminal" id="simulator-log-stream">
+            <div class="log-line">
+              <span class="log-time">10:42:01.012</span>
+              <span class="log-tag info">STANDBY</span>
+              <span>Select parameters above and click "Run Live Pipeline Simulation" to trigger orchestrator telemetry.</span>
+            </div>
+            <div class="log-line">
+              <span class="log-time">10:42:01.015</span>
+              <span class="log-tag info">CONFIG</span>
+              <span>Active drivers: Oracle OCI Hybrid, Microsoft ODBC 18, PyArrow 14.0.2 Memory Streaming Engine.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         HOW IT WORKS: 6-Step Pipeline Flow
+         ======================================================================== -->
+    <section class="section-wrapper" id="how-it-works">
+      <div class="container">
+        <div class="section-header" data-reveal="fade-up">
+          <span class="section-badge indigo">STEP-BY-STEP WORKFLOW</span>
+          <h2>From Source Connect to Power BI in <span class="text-gradient-cyan">6 Automated Steps</span></h2>
+          <p class="section-description">
+            Zero complex YAML, zero brittle Python scripts, zero maintenance overhead.
+          </p>
+        </div>
+
+        <div class="pipeline-steps-grid">
+          
+          <div class="step-card" data-reveal="fade-up">
+            <div class="step-num-badge">01</div>
+            <h3 class="step-title">Register Source DB</h3>
+            <p class="step-desc">
+              Input connection credentials into the AES-256 Vault. DataBridge tests socket connectivity, connection pooling, and verifies minimal read permissions.
+            </p>
+          </div>
+
+          <div class="step-card" data-reveal="fade-up" style="transition-delay: 0.1s;">
+            <div class="step-num-badge">02</div>
+            <h3 class="step-title">Auto-Profile Schema</h3>
+            <p class="step-desc">
+              DataBridge introspects catalogs, foreign keys, partition ranges, primary keys, and data types across Oracle, SQL Server, and relational databases.
+            </p>
+          </div>
+
+          <div class="step-card" data-reveal="fade-up" style="transition-delay: 0.2s;">
+            <div class="step-num-badge">03</div>
+            <h3 class="step-title">Configure Load Strategy</h3>
+            <p class="step-desc">
+              Select Full Load, Incremental Delta (High-Watermark timestamp), or Smart Merge Override for collision-free deduplication and upserts.
+            </p>
+          </div>
+
+          <div class="step-card" data-reveal="fade-up">
+            <div class="step-num-badge">04</div>
+            <h3 class="step-title">Run High-Speed Ingestion</h3>
+            <p class="step-desc">
+              Multi-threaded PyArrow workers stream records in chunked memory buffers directly to the target staging layer without hitting local disk.
+            </p>
+          </div>
+
+          <div class="step-card" data-reveal="fade-up" style="transition-delay: 0.1s;">
+            <div class="step-num-badge">05</div>
+            <h3 class="step-title">Auto DDL Alignment</h3>
+            <p class="step-desc">
+              Target warehouse tables are inspected and non-destructively updated with automatic `ALTER TABLE` DDL executions if upstream schemas changed.
+            </p>
+          </div>
+
+          <div class="step-card" data-reveal="fade-up" style="transition-delay: 0.2s;">
+            <div class="step-num-badge">06</div>
+            <h3 class="step-title">Trigger Power BI Refresh</h3>
+            <p class="step-desc">
+              Post-ingestion validation runs automatically, followed by a secure REST/XMLA trigger that refreshes downstream Power BI semantic models.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         BUSINESS VALUE & INTERACTIVE ROI CALCULATOR
+         ======================================================================== -->
+    <section class="section-wrapper" id="roi">
+      <div class="container">
+        <div class="roi-section-container">
+          
+          <!-- Left: 4 Business Value Cards -->
+          <div class="roi-info-pane" data-reveal="fade-right">
+            <span class="section-badge emerald">MEASURABLE IMPACT</span>
+            <h2>Eliminate Pipeline Overhead. <br><span class="text-gradient-cyan">Accelerate Enterprise ROI.</span></h2>
+            <p class="section-description" style="margin-bottom: 2rem;">
+              Replacing custom-scripted ETL with DataBridge cuts engineering overhead, reduces warehouse compute consumption, and guarantees audit readiness.
+            </p>
+
+            <div class="stats-2x2-grid">
+              <div class="stat-roi-card" data-reveal="fade-up">
+                <div class="stat-roi-num counter-item" data-target="95" data-suffix="%">95%</div>
+                <div class="stat-roi-title">Zero-Code Efficiency</div>
+                <div class="stat-roi-desc">Reduces pipeline onboarding from 3 weeks to under 15 minutes.</div>
+              </div>
+
+              <div class="stat-roi-card" data-reveal="fade-up" style="transition-delay: 0.1s;">
+                <div class="stat-roi-num counter-item" data-target="80" data-suffix="%">80%</div>
+                <div class="stat-roi-title">Minimized DB Strain</div>
+                <div class="stat-roi-desc">Smart delta filters and micro-batching eliminate production locking.</div>
+              </div>
+
+              <div class="stat-roi-card" data-reveal="fade-up" style="transition-delay: 0.2s;">
+                <div class="stat-roi-num counter-item" data-target="100" data-suffix="%">100%</div>
+                <div class="stat-roi-title">Audit Readiness</div>
+                <div class="stat-roi-desc">Complete cryptographic logging of every data transfer and user action.</div>
+              </div>
+
+              <div class="stat-roi-card" data-reveal="fade-up" style="transition-delay: 0.3s;">
+                <div class="stat-roi-num">&lt; 5m</div>
+                <div class="stat-roi-title">Real-Time Reports</div>
+                <div class="stat-roi-desc">Immediate Power BI dataset refreshes upon ingest completion.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Interactive ROI / TCO Calculator -->
+          <div class="calculator-box" data-reveal="fade-left">
+            <div class="pipeline-terminal-header" style="margin-bottom: 1.5rem;">
+              <span class="card-badge good">📊 TCO & ROI ESTIMATOR</span>
+              <span class="logo-tag">REAL-TIME</span>
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <span>Source Databases Managed:</span>
+                <span class="slider-value-display" id="val-sources-display">6 Databases</span>
+              </div>
+              <input type="range" min="1" max="30" value="6" class="range-slider" id="slider-sources">
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <span>Monthly Ingestion Volume:</span>
+                <span class="slider-value-display" id="val-volume-display">500 GB / month</span>
+              </div>
+              <input type="range" min="50" max="5000" step="50" value="500" class="range-slider" id="slider-volume">
+            </div>
+
+            <div class="roi-output-panel">
+              <div>
+                <div class="output-value" id="roi-hours-saved">363 hrs / yr</div>
+                <div class="output-label">Engineering Hours Saved</div>
+              </div>
+              <div>
+                <div class="output-value" id="roi-dollars-saved">$36,735</div>
+                <div class="output-label">Estimated Annual Savings</div>
+              </div>
+            </div>
+
+            <div style="margin-top: 1.25rem; font-size: 0.8rem; color: var(--text-muted); text-align: center;">
+              Estimated Break-Even Timeline: <strong style="color: #34D399;" id="roi-breakeven">6 Days</strong> | Based on $95/hr standard data engineering rate.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECURITY, COMPLIANCE & VAULT HIGHLIGHT
+         ======================================================================== -->
+    <section class="section-wrapper" id="security">
+      <div class="container">
+        <div class="security-vault-box" data-reveal="zoom-in">
+          <div class="section-header" style="margin-bottom: 2rem;">
+            <span class="section-badge emerald">CRYPTOGRAPHIC TRUST</span>
+            <h2>Zero-Trust Security & <span class="text-gradient-cyan">Credential Vault</span></h2>
+            <p class="section-description">
+              DataBridge never writes your credentials to code repositories, logs, or plain text configuration files.
+            </p>
+          </div>
+
+          <div class="security-features-grid">
+            <div class="security-item">
+              <div class="security-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4>AES-256-GCM Credential Vault</h4>
+                <p>Hardware-grade encryption for all database connection strings and service account keys with automatic rotation.</p>
+              </div>
+            </div>
+
+            <div class="security-item">
+              <div class="security-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </div>
+              <div>
+                <h4>JWT Authentication & Granular RBAC</h4>
+                <p>Role-based access controls for Pipeline Admins, Viewers, and Data Engineers with strict session token expiry.</p>
+              </div>
+            </div>
+
+            <div class="security-item">
+              <div class="security-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+              <div>
+                <h4>Immutable Audit Logging</h4>
+                <p>Cryptographically signed audit trails for every pipeline execution, schema mutation, and user authorization event.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         TESTIMONIALS & ENTERPRISE TRUST BAR
+         ======================================================================== -->
+    <section class="section-wrapper" id="testimonials">
+      <div class="container">
+        <div class="section-header" data-reveal="fade-up">
+          <span class="section-badge indigo">VALIDATED BY DATA LEADERS</span>
+          <h2>Trusted by <span class="text-gradient-cyan">Enterprise Data Teams</span></h2>
+          <p class="section-description">
+            See how enterprise data engineers and IT architects modernize data movement with DataBridge.
+          </p>
+        </div>
+
+        <!-- Trust Logos Strip -->
+        <div class="trust-logos-row" data-reveal="fade-up">
+          <div class="trust-logo-pill">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            <span>VERTEX FINANCIAL</span>
+          </div>
+          <div class="trust-logo-pill">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            <span>GLOBAL LOGISTICS CORP</span>
+          </div>
+          <div class="trust-logo-pill">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <span>NEXUS HEALTH DATA</span>
+          </div>
+          <div class="trust-logo-pill">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>
+            <span>OMNI RETAIL SYSTEMS</span>
+          </div>
+        </div>
+
+        <div class="testimonials-grid" data-reveal="fade-up">
+          <div class="testimonial-card">
+            <p class="quote-text">
+              "We migrated 45 Oracle 19c financial tables to Snowflake in an afternoon. In the past, writing and testing custom delta extraction scripts would have consumed our entire sprint."
+            </p>
+            <div class="author-info">
+              <div class="author-avatar">MS</div>
+              <div>
+                <div class="author-name">Marcus Sterling</div>
+                <div class="author-role">VP of Enterprise Data Architecture, Fortune 500 Bank</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <p class="quote-text">
+              "The automatic DDL alignment alone saved our sanity. Whenever the ERP team adds a column, DataBridge syncs our warehouse tables seamlessly without waking up on-call engineers at 2 AM."
+            </p>
+            <div class="author-info">
+              <div class="author-avatar">AL</div>
+              <div>
+                <div class="author-name">Elena Rostova</div>
+                <div class="author-role">Principal Data Platform Lead, Global Supply Chain</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <p class="quote-text">
+              "Automating the XMLA Power BI refresh after our SQL Server staging runs gave our executive leadership team sub-5-minute report freshness for the first time in company history."
+            </p>
+            <div class="author-info">
+              <div class="author-avatar">DK</div>
+              <div>
+                <div class="author-name">Devon Kulkarni</div>
+                <div class="author-role">Director of Business Intelligence, Healthcare Cloud</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         FAQ SECTION
+         ======================================================================== -->
+    <section class="section-wrapper" id="faq">
+      <div class="container">
+        <div class="section-header" data-reveal="fade-up">
+          <span class="section-badge">FREQUENTLY ASKED QUESTIONS</span>
+          <h2>Enterprise Data & IT <span class="text-gradient-cyan">Architecture FAQs</span></h2>
+        </div>
+
+        <div class="faq-accordion" data-reveal="fade-up">
+          
+          <div class="faq-item open">
+            <button class="faq-question">
+              <span>How does DataBridge handle schema drift during live ingestion?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              DataBridge includes an intelligent Schema Profiler engine that introspects upstream table definitions before every extraction. If new columns or safe type expansions are detected, it executes non-destructive `ALTER TABLE` DDL statements on your target warehouse (Snowflake, BigQuery, Databricks) prior to staging the incoming records.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Does DataBridge store our raw business data?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              No. DataBridge follows a zero-retention, streaming architecture. Records are extracted directly into in-memory PyArrow buffers and streamed straight to your private cloud data warehouse staging layer. No customer business records are ever persisted on DataBridge control disks.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Which Oracle and SQL Server versions are supported?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              We provide certified native driver support for Oracle 11g Release 2 through 21c (Thin and Thick OCI drivers), and Microsoft SQL Server 2014 through SQL Server 2022 (including Azure SQL Database and Managed Instances).
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>How does the automated Power BI refresh trigger work?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Upon successful validation and commit of the warehouse staging load, DataBridge issues a secure Microsoft Graph / XMLA REST API call to your designated Power BI workspace to trigger an immediate, partition-level semantic dataset refresh.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Can DataBridge be deployed within our private VPC or On-Premises?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Yes. In addition to managed cloud deployment, DataBridge is available as a Docker / Kubernetes Helm chart for self-hosted deployment inside your AWS VPC, Azure VNet, or on-premises enterprise data center.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         DEMO REQUEST / CONTACT SECTION
+         ======================================================================== -->
+    <section class="section-wrapper" id="demo">
+      <div class="container">
+        <div class="demo-section-grid">
+          
+          <!-- Left: Information pane -->
+          <div data-reveal="fade-right">
+            <span class="section-badge emerald">GET STARTED TODAY</span>
+            <h2>Experience DataBridge in <span class="text-gradient-cyan">Your Environment</span></h2>
+            <p class="section-description">
+              Schedule a dedicated 1-on-1 architecture review with a senior data integration specialist. We will connect to a sample schema and demonstrate live delta ingestion in under 15 minutes.
+            </p>
+
+            <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Live Schema Introspection on Your Test DB</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Full Architectural Whitepaper & SOC2 Package</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>14-Day Full-Feature Enterprise Proof of Concept</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Form Card -->
+          <div class="demo-form-card" data-reveal="fade-left">
+            <h3 style="margin-bottom: 0.5rem;">Request an Enterprise Demo</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+              Connect with our solutions architects to evaluate DataBridge.
+            </p>
+
+            <form id="enterprise-demo-form">
+              <div class="form-grid">
+                
+                <div class="form-group">
+                  <label class="form-label" for="demo-name">Full Name *</label>
+                  <input type="text" id="demo-name" class="form-input" placeholder="e.g. Sarah Jenkins" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="demo-email">Work Email *</label>
+                  <input type="email" id="demo-email" class="form-input" placeholder="name@company.com" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="demo-company">Company Name *</label>
+                  <input type="text" id="demo-company" class="form-input" placeholder="e.g. Enterprise Logistics Corp" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="demo-source">Primary Source DB</label>
+                  <select id="demo-source" class="form-select">
+                    <option value="oracle">Oracle Database (11g/19c/21c)</option>
+                    <option value="mssql">Microsoft SQL Server</option>
+                    <option value="postgres">PostgreSQL</option>
+                    <option value="multiple">Multi-Source Hybrid Mix</option>
+                  </select>
+                </div>
+
+                <div class="form-group full-width">
+                  <label class="form-label" for="demo-warehouse">Target Cloud Warehouse</label>
+                  <select id="demo-warehouse" class="form-select">
+                    <option value="snowflake">Snowflake</option>
+                    <option value="databricks">Databricks Delta Lake</option>
+                    <option value="bigquery">Google BigQuery</option>
+                    <option value="synapse">Microsoft Fabric / Azure Synapse</option>
+                  </select>
+                </div>
+
+                <div class="form-group full-width">
+                  <label class="form-label" for="demo-message">Pipeline Requirements / Goals</label>
+                  <textarea id="demo-message" class="form-textarea" placeholder="Tell us about your data volume, sync frequency, or current scripting challenges..."></textarea>
+                </div>
+
+                <div class="form-group full-width" style="margin-top: 0.5rem;">
+                  <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                    Request an Enterprise Demo →
+                  </button>
+                </div>
+
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        
+        <!-- Column 1: Brand & Tagline -->
+        <div class="footer-brand">
+          <div class="logo-brand">
+            <div class="logo-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="2.5">
+                <rect x="2" y="2" width="8" height="8" rx="2"></rect>
+                <rect x="14" y="14" width="8" height="8" rx="2"></rect>
+                <path d="M6 10v4a4 4 0 0 0 4 4h4"></path>
+              </svg>
+            </div>
+            <span>DataBridge</span>
+          </div>
+          <p>
+            The enterprise multi-source data ingestion and pipeline orchestration platform. Zero manual scripting across Oracle, SQL Server, Snowflake, and Power BI.
+          </p>
+        </div>
+
+        <!-- Column 2: Capabilities -->
+        <div class="footer-col">
+          <h5>Platform</h5>
+          <div class="footer-links">
+            <a href="#capabilities" class="footer-link">Multi-Source Discovery</a>
+            <a href="#capabilities" class="footer-link">Delta Ingestion</a>
+            <a href="#capabilities" class="footer-link">Auto DDL Alignment</a>
+            <a href="#capabilities" class="footer-link">Power BI Refreshes</a>
+            <a href="#security" class="footer-link">AES-256 Vault</a>
+          </div>
+        </div>
+
+        <!-- Column 3: Architecture & Resources -->
+        <div class="footer-col">
+          <h5>Architecture</h5>
+          <div class="footer-links">
+            <a href="#architecture" class="footer-link">Technical Blueprint</a>
+            <a href="#simulator" class="footer-link">Interactive Testbench</a>
+            <a href="#how-it-works" class="footer-link">Pipeline Flow</a>
+            <a href="#roi" class="footer-link">ROI Calculator</a>
+            <a href="#demo" class="footer-link">Request Live Demo</a>
+          </div>
+        </div>
+
+        <!-- Column 4: Security & Legal -->
+        <div class="footer-col">
+          <h5>Trust & Compliance</h5>
+          <div class="footer-links">
+            <a href="#security" class="footer-link">SOC2 Type II Overview</a>
+            <a href="#security" class="footer-link">ISO 27001 Security</a>
+            <a href="#security" class="footer-link">HIPAA Readiness</a>
+            <a href="#demo" class="footer-link">Request Security Whitepaper</a>
+            <a href="#" class="footer-link">Privacy Policy</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div>
+          © 2026 DataBridge Systems Inc. All rights reserved. Powered by React 19, Vite, Flask 3 & PyArrow.
+        </div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#" class="footer-link">Status Page</a>
+          <a href="#" class="footer-link">Security Disclosures</a>
+          <a href="#" class="footer-link">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" aria-label="Back to Top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Core JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>
