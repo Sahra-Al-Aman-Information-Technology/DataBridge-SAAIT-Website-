@@ -30,7 +30,7 @@ function initPagePreloader() {
   const steps = [
     { pct: 28, msg: 'AUTHENTICATING ENCRYPTION VAULT...' },
     { pct: 62, msg: 'INTROSPECTING ENTERPRISE CATALOGS...' },
-    { pct: 88, msg: 'CALIBRATING PYARROW MEMORY BUFFER...' },
+    { pct: 88, msg: 'CALIBRATING IN-MEMORY STREAM BUFFER...' },
     { pct: 100, msg: '100% READY // PIPELINE ORCHESTRATOR ONLINE' }
   ];
 
@@ -209,19 +209,24 @@ function initPipelineSimulator() {
 
   const simulationScenarios = {
     oracle: {
-      driver: 'Oracle Instant Client 21c (Thin/Thick Hybrid)',
-      tables: 'GL_JE_LINES, AP_INVOICES_ALL, AR_CUSTOMERS',
-      schemaDiff: 'Detected +2 columns: [TAX_EXEMPT_CODE VARCHAR2(32), LEDGER_SYNC_TS TIMESTAMP(6)]'
+      driver: 'Oracle cx_Oracle / SQLAlchemy Driver',
+      tables: 'FINANCIAL_ORDERS, AR_INVOICES, GL_TRANSACTIONS',
+      proc: 'sp_CalculateMonthlyAccruals (Seq: 1, Group: A)'
     },
     mssql: {
-      driver: 'Microsoft ODBC 18 for SQL Server (High Watermark)',
+      driver: 'Microsoft ODBC Driver 18 for SQL Server',
       tables: 'SalesOrderHeader, FactInventoryDaily, DimCustomer',
-      schemaDiff: 'Detected altered type: [OrderTotal DECIMAL(18,2) -> DECIMAL(20,4)]'
+      proc: 'sp_UpdateInventoryBalances (Seq: 2, Group: B)'
     },
-    postgres: {
-      driver: 'PostgreSQL WAL Logical Replication Stream',
-      tables: 'public.orders, public.transactions, public.users',
-      schemaDiff: 'Auto-mapped JSONB to Snowflake VARIANT data type seamlessly'
+    excel: {
+      driver: 'OpenXML Sheet Ingestion Engine',
+      tables: 'Q4_Financial_Report.xlsx, MonthlyExpenses.csv',
+      proc: 'sp_ConsolidateExcelStaging (Seq: 1, Group: A)'
+    },
+    sharepoint: {
+      driver: 'Microsoft Graph API SharePoint List Engine',
+      tables: 'VendorDirectory_List, ProjectTracker_List',
+      proc: 'sp_SyncSharePointListState (Seq: 1, Group: A)'
     }
   };
 
@@ -235,22 +240,22 @@ function initPipelineSimulator() {
     logContainer.innerHTML = '';
 
     const source = sourceSelect ? sourceSelect.value : 'oracle';
-    const strategy = strategySelect ? strategySelect.value : 'delta';
-    const target = targetSelect ? targetSelect.value : 'snowflake';
+    const strategy = strategySelect ? strategySelect.value : 'append';
+    const target = targetSelect ? targetSelect.value : 'oracle_wh';
     const meta = simulationScenarios[source] || simulationScenarios.oracle;
 
     const logSteps = [
-      { text: `[INIT] Authenticating connection vault with source pool: ${source.toUpperCase()} Production Cluster...`, tag: 'info', delay: 100 },
-      { text: `[AUTH] AES-256 JWT Token validated. Session handshake established via ${meta.driver}.`, tag: 'info', delay: 400 },
-      { text: `[PROFILE] Auto-discovering schema and foreign constraints for tables: [${meta.tables}]...`, tag: 'info', delay: 750 },
-      { text: `[STRATEGY] Configured Mode: [${strategy.toUpperCase()}]. Reading high-watermark timestamp index...`, tag: 'info', delay: 1100 },
-      { text: `[EXTRACT] Chunking extract streams into PyArrow binary memory buffer... 142,500 records/sec`, tag: 'info', delay: 1500 },
-      { text: `[DDL_ALIGN] Introspecting target schema at ${target.toUpperCase()}: ${meta.schemaDiff}`, tag: 'warn', delay: 1950 },
-      { text: `[DDL_ALIGN] Non-destructive target DDL update applied successfully. Zero data loss.`, tag: 'success', delay: 2300 },
-      { text: `[MERGE] Performing zero-collision staged upsert into ${target.toUpperCase()} Production Lake...`, tag: 'info', delay: 2700 },
-      { text: `[POST_HOOK] Executing automated data quality assertions (Zero NULL keys, Rowcount checksum matched).`, tag: 'info', delay: 3050 },
-      { text: `[POWER_BI] Triggering XMLA / REST API refresh for dataset: [Enterprise_Exec_KPI_v2] (Dataset ID: pbi-ds-8821)...`, tag: 'info', delay: 3400 },
-      { text: `[COMPLETE] ✅ Pipeline sync finished in 1.48s! Total rows synchronized: 384,190 | Status: 200 OK`, tag: 'success', delay: 3800 }
+      { text: `[INIT] Mapped Source: [${source.toUpperCase()}] -> Target Warehouse: [${target.toUpperCase()}]...`, tag: 'info', delay: 100 },
+      { text: `[EXTRACT] Pulling data from ${source.toUpperCase()} via ${meta.driver}...`, tag: 'info', delay: 400 },
+      { text: `[STAGE] Staged extracted dataset as CSV file buffer: [stg_${source}_raw.csv]`, tag: 'info', delay: 800 },
+      { text: `[TABLE_CHECK] Verifying destination table structure in ${target.toUpperCase()} (auto-created if missing)...`, tag: 'info', delay: 1200 },
+      { text: `[STRATEGY] Configured Mode: [${strategy.toUpperCase()}]. Checked today's presence -> Auto-merged to prevent duplicates.`, tag: 'info', delay: 1600 },
+      { text: `[PROCEDURE] Executing registered source procedure: ${meta.proc}...`, tag: 'warn', delay: 2000 },
+      { text: `[PROCEDURE] Procedure execution completed cleanly. Sequence & Parallel group verified.`, tag: 'success', delay: 2400 },
+      { text: `[MSAL_AUTH] Authenticating with Azure AD (MSAL Service Principal: Client ID & Tenant ID)...`, tag: 'info', delay: 2800 },
+      { text: `[POWER_BI] Polling Power BI REST API for linked semantic model refresh status...`, tag: 'info', delay: 3200 },
+      { text: `[POWER_BI] Power BI dataset refresh status: COMPLETED (200 OK)`, tag: 'success', delay: 3600 },
+      { text: `[LOGS_VIEW] Transaction Log record created: Extracted: 48,210 | Inserted: 48,210 | Updated: 0 | Errors: 0`, tag: 'success', delay: 4000 }
     ];
 
     logSteps.forEach((step) => {

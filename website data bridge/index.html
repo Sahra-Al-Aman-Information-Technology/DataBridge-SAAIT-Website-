@@ -50,12 +50,6 @@
 </head>
 <body>
 
-  <!-- Top Announcement Bar -->
-  <div class="announcement-bar">
-    <span class="announcement-badge">NEW v3.4</span>
-    <span>Automated Snowflake DDL Evolution & Direct Power BI XMLA Refresh Engine is live.</span>
-    <a href="#capabilities" class="announcement-link">Explore Capabilities →</a>
-  </div>
 
   <!-- Sticky Navbar -->
   <header class="navbar">
@@ -164,10 +158,10 @@
           <!-- Left Hero Column -->
           <div class="hero-content">
             <div class="hero-badge hero-animate-badge">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2.5">
                 <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
               </svg>
-              <span>ENTERPRISE PIPELINE ORCHESTRATION</span>
+              <span><strong style="color: #F97316;">ORACLE FUSION</strong> &amp; ENTERPRISE PIPELINE ORCHESTRATION</span>
             </div>
 
             <h1 class="hero-title hero-animate-title">
@@ -177,7 +171,7 @@
             </h1>
 
             <p class="hero-subtitle hero-animate-subtitle">
-              DataBridge automates mission-critical ETL, delta change capture, dynamic warehouse DDL alignment, and Power BI semantic dataset refreshes across Oracle, SQL Server, and cloud warehouses — eliminating brittle Python scripts and plain-text credentials forever.
+              DataBridge automates mission-critical ETL, delta change capture, dynamic DDL alignment, and seamless sync across <strong style="color: #F97316;">Oracle Fusion ERP Cloud</strong>, Salesforce, Oracle DB, SQL DB, SharePoint, and Excel — eliminating brittle Python scripts and plain-text credentials forever.
             </p>
 
             <div class="hero-ctas hero-animate-ctas">
@@ -239,107 +233,134 @@
               </div>
 
               <!-- Animated SVG Pipeline Visualization -->
-              <svg class="pipeline-diagram-svg" viewBox="0 0 600 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg class="pipeline-diagram-svg" viewBox="0 0 720 380" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                  <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stop-color="#06B6D4" />
-                    <stop offset="100%" stop-color="#22D3EE" />
+                    <stop offset="100%" stop-color="#3B82F6" />
                   </linearGradient>
-                  <linearGradient id="indigoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#6366F1" />
-                    <stop offset="100%" stop-color="#818CF8" />
+                  <linearGradient id="nodeBg" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#1E293B" />
+                    <stop offset="100%" stop-color="#0F172A" />
+                  </linearGradient>
+                  <linearGradient id="coreBg" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#0F172A" />
+                    <stop offset="100%" stop-color="#070D1B" />
                   </linearGradient>
                   <filter id="glowCyan" x="-20%" y="-20%" width="140%" height="140%">
-                    <feGaussianBlur stdDeviation="4" result="blur" />
+                    <feGaussianBlur stdDeviation="5" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                  </filter>
+                  <filter id="glowNode" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="3" result="blur" />
                     <feComposite in="SourceGraphic" in2="blur" operator="over" />
                   </filter>
                 </defs>
 
                 <!-- Connecting Stream Paths with Active Flow -->
-                <!-- Path 1: Source DBs to DataBridge Engine -->
-                <path d="M 120 70 C 180 70, 200 135, 250 135" stroke="rgba(6, 182, 212, 0.3)" stroke-width="2.5" fill="none" />
-                <path d="M 120 145 C 180 145, 200 140, 250 140" stroke="rgba(6, 182, 212, 0.3)" stroke-width="2.5" fill="none" />
-                <path d="M 120 220 C 180 220, 200 145, 250 145" stroke="rgba(6, 182, 212, 0.3)" stroke-width="2.5" fill="none" />
+                <!-- Left Sources to Center Engine -->
+                <path d="M 145 36 C 215 36, 215 136, 265 136" stroke="rgba(6, 182, 212, 0.2)" stroke-width="2.5" fill="none" />
+                <path d="M 145 98 C 215 98, 215 158, 265 158" stroke="rgba(6, 182, 212, 0.2)" stroke-width="2.5" fill="none" />
+                <path d="M 145 160 C 215 160, 215 180, 265 180" stroke="rgba(6, 182, 212, 0.2)" stroke-width="2.5" fill="none" />
+                <path d="M 145 222 C 215 222, 215 202, 265 202" stroke="rgba(6, 182, 212, 0.2)" stroke-width="2.5" fill="none" />
+                <path d="M 145 284 C 215 284, 215 224, 265 224" stroke="rgba(6, 182, 212, 0.2)" stroke-width="2.5" fill="none" />
+                <path d="M 145 346 C 215 346, 215 246, 265 246" stroke="rgba(6, 182, 212, 0.2)" stroke-width="2.5" fill="none" />
 
-                <!-- Flowing Animated Particles -->
-                <path d="M 120 70 C 180 70, 200 135, 250 135" stroke="#22D3EE" stroke-width="2.5" stroke-dasharray="6 6" class="stream-path-active" fill="none" />
-                <path d="M 120 145 C 180 145, 200 140, 250 140" stroke="#22D3EE" stroke-width="2.5" stroke-dasharray="6 6" class="stream-path-active" fill="none" />
-                <path d="M 120 220 C 180 220, 200 145, 250 145" stroke="#22D3EE" stroke-width="2.5" stroke-dasharray="6 6" class="stream-path-active" fill="none" />
+                <!-- Flowing Animated Stream Particles -->
+                <path d="M 145 36 C 215 36, 215 136, 265 136" stroke="#22D3EE" stroke-width="2.5" stroke-dasharray="6 6" class="stream-path-active" fill="none" />
+                <path d="M 145 98 C 215 98, 215 158, 265 158" stroke="#22D3EE" stroke-width="2.5" stroke-dasharray="6 6" class="stream-path-active" fill="none" />
+                <path d="M 145 160 C 215 160, 215 180, 265 180" stroke="#22D3EE" stroke-width="2.5" stroke-dasharray="6 6" class="stream-path-active" fill="none" />
+                <path d="M 145 222 C 215 222, 215 202, 265 202" stroke="#22D3EE" stroke-width="2.5" stroke-dasharray="6 6" class="stream-path-active" fill="none" />
+                <path d="M 145 284 C 215 284, 215 224, 265 224" stroke="#22D3EE" stroke-width="2.5" stroke-dasharray="6 6" class="stream-path-active" fill="none" />
+                <path d="M 145 346 C 215 346, 215 246, 265 246" stroke="#22D3EE" stroke-width="2.5" stroke-dasharray="6 6" class="stream-path-active" fill="none" />
 
-                <!-- Path 2: DataBridge Engine to Warehouse -->
-                <path d="M 390 135 C 430 135, 440 85, 475 85" stroke="rgba(99, 102, 241, 0.3)" stroke-width="2.5" fill="none" />
-                <path d="M 390 145 C 430 145, 440 205, 475 205" stroke="rgba(99, 102, 241, 0.3)" stroke-width="2.5" fill="none" />
-                <path d="M 390 135 C 430 135, 440 85, 475 85" stroke="#818CF8" stroke-width="2.5" stroke-dasharray="6 6" class="stream-path-active" fill="none" />
-                <path d="M 390 145 C 430 145, 440 205, 475 205" stroke="#818CF8" stroke-width="2.5" stroke-dasharray="6 6" class="stream-path-active" fill="none" />
+                <!-- Center Engine to Right Targets (Oracle & SQL DB) -->
+                <path d="M 455 165 C 515 165, 515 136, 575 136" stroke="rgba(129, 140, 248, 0.25)" stroke-width="2.5" fill="none" />
+                <path d="M 455 215 C 515 215, 515 246, 575 246" stroke="rgba(129, 140, 248, 0.25)" stroke-width="2.5" fill="none" />
+                <path d="M 455 165 C 515 165, 515 136, 575 136" stroke="#818CF8" stroke-width="2.5" stroke-dasharray="6 6" class="stream-path-active" fill="none" />
+                <path d="M 455 215 C 515 215, 515 246, 575 246" stroke="#818CF8" stroke-width="2.5" stroke-dasharray="6 6" class="stream-path-active" fill="none" />
 
-                <!-- SOURCE NODES (Left Tier) -->
+                <!-- SOURCE NODES (Left Tier - 6 Items) -->
+                <!-- Node 1: Oracle Fusion -->
+                <g class="pulse-node">
+                  <rect x="20" y="12" width="125" height="48" rx="8" fill="url(#nodeBg)" stroke="#06B6D4" stroke-width="1.5" />
+                  <circle cx="35" cy="36" r="4.5" fill="#F97316" filter="url(#glowNode)" />
+                  <text x="48" y="32" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="11.5" font-weight="700">Oracle Fusion</text>
+                  <text x="48" y="45" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="8.5">ERP Cloud</text>
+                </g>
+
+                <!-- Node 2: Salesforce -->
+                <g class="pulse-node">
+                  <rect x="20" y="74" width="125" height="48" rx="8" fill="url(#nodeBg)" stroke="#06B6D4" stroke-width="1.5" />
+                  <circle cx="35" cy="98" r="4.5" fill="#0EA5E9" filter="url(#glowNode)" />
+                  <text x="48" y="94" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="11.5" font-weight="700">Salesforce</text>
+                  <text x="48" y="107" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="8.5">CRM Objects</text>
+                </g>
+
+                <!-- Node 3: Oracle DB -->
+                <g class="pulse-node">
+                  <rect x="20" y="136" width="125" height="48" rx="8" fill="url(#nodeBg)" stroke="#06B6D4" stroke-width="1.5" />
+                  <circle cx="35" cy="160" r="4.5" fill="#EF4444" filter="url(#glowNode)" />
+                  <text x="48" y="156" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="11.5" font-weight="700">Oracle DB</text>
+                  <text x="48" y="169" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="8.5">Enterprise DB</text>
+                </g>
+
+                <!-- Node 4: SQL DB -->
+                <g class="pulse-node">
+                  <rect x="20" y="198" width="125" height="48" rx="8" fill="url(#nodeBg)" stroke="#06B6D4" stroke-width="1.5" />
+                  <circle cx="35" cy="222" r="4.5" fill="#3B82F6" filter="url(#glowNode)" />
+                  <text x="48" y="218" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="11.5" font-weight="700">SQL DB</text>
+                  <text x="48" y="231" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="8.5">Relational Store</text>
+                </g>
+
+                <!-- Node 5: SharePoint -->
+                <g class="pulse-node">
+                  <rect x="20" y="260" width="125" height="48" rx="8" fill="url(#nodeBg)" stroke="#06B6D4" stroke-width="1.5" />
+                  <circle cx="35" cy="284" r="4.5" fill="#10B981" filter="url(#glowNode)" />
+                  <text x="48" y="280" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="11.5" font-weight="700">SharePoint</text>
+                  <text x="48" y="293" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="8.5">Lists &amp; Files</text>
+                </g>
+
+                <!-- Node 6: Excel -->
+                <g class="pulse-node">
+                  <rect x="20" y="322" width="125" height="48" rx="8" fill="url(#nodeBg)" stroke="#06B6D4" stroke-width="1.5" />
+                  <circle cx="35" cy="346" r="4.5" fill="#22C55E" filter="url(#glowNode)" />
+                  <text x="48" y="342" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="11.5" font-weight="700">Excel</text>
+                  <text x="48" y="355" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="8.5">Worksheets &amp; CSV</text>
+                </g>
+
+                <!-- CENTER NODE: DATABRIDGE CORE -->
+                <g filter="url(#glowCyan)">
+                  <rect x="265" y="110" width="190" height="160" rx="12" fill="url(#coreBg)" stroke="#22D3EE" stroke-width="2" />
+                  <rect x="271" y="118" width="178" height="28" rx="6" fill="rgba(6, 182, 212, 0.18)" stroke="rgba(34, 211, 238, 0.4)" stroke-width="1" />
+                  <text x="360" y="136" fill="#22D3EE" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="11.5" font-weight="800" letter-spacing="0.5">DATABRIDGE CORE</text>
+                  <text x="280" y="164" fill="#F1F5F9" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="600">• Automated ETL Engine</text>
+                  <text x="280" y="183" fill="#F1F5F9" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="600">• Delta Change Capture</text>
+                  <text x="280" y="202" fill="#F1F5F9" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="600">• Dynamic DDL Alignment</text>
+                  <text x="280" y="221" fill="#F1F5F9" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="600">• Power BI Dataset Refresh</text>
+                  <text x="280" y="242" fill="#34D399" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">✓ Zero Manual Scripting</text>
+                  <text x="280" y="259" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">✓ Real-time Sync Active</text>
+                </g>
+
+                <!-- DESTINATION NODES (Right Tier - 2 Items) -->
                 <!-- Node 1: Oracle -->
                 <g class="pulse-node">
-                  <rect x="20" y="48" width="100" height="44" rx="7" fill="#0F172A" stroke="#06B6D4" stroke-width="1.5" />
-                  <circle cx="34" cy="70" r="4.5" fill="#EF4444" />
-                  <text x="46" y="67" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700">Oracle 19c</text>
-                  <text x="46" y="80" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="7.5">GL_JE_LINES</text>
+                  <rect x="575" y="110" width="125" height="52" rx="8" fill="url(#nodeBg)" stroke="#EF4444" stroke-width="1.8" />
+                  <circle cx="589" cy="136" r="5" fill="#EF4444" filter="url(#glowNode)" />
+                  <text x="601" y="131" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="12" font-weight="700">Oracle</text>
+                  <text x="601" y="146" fill="#FCA5A5" font-family="'JetBrains Mono', monospace" font-size="8.5">Target Warehouse</text>
                 </g>
 
-                <!-- Node 2: SQL Server -->
+                <!-- Node 2: SQL DB -->
                 <g class="pulse-node">
-                  <rect x="20" y="122" width="100" height="44" rx="7" fill="#0F172A" stroke="#06B6D4" stroke-width="1.5" />
-                  <circle cx="34" cy="144" r="4.5" fill="#3B82F6" />
-                  <text x="46" y="141" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700">SQL Server</text>
-                  <text x="46" y="154" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="7.5">FactOrders</text>
-                </g>
-
-                <!-- Node 3: PostgreSQL -->
-                <g class="pulse-node">
-                  <rect x="20" y="196" width="100" height="44" rx="7" fill="#0F172A" stroke="#06B6D4" stroke-width="1.5" />
-                  <circle cx="34" cy="218" r="4.5" fill="#38BDF8" />
-                  <text x="46" y="215" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700">Postgres 16</text>
-                  <text x="46" y="228" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="7.5">UserEvents</text>
-                </g>
-
-                <!-- CENTER NODE: DataBridge Orchestrator -->
-                <g filter="url(#glowCyan)">
-                  <rect x="250" y="95" width="140" height="85" rx="10" fill="#0B132B" stroke="#22D3EE" stroke-width="1.8" />
-                  <rect x="255" y="100" width="130" height="22" rx="4" fill="rgba(6, 182, 212, 0.15)" />
-                  <text x="320" y="115" fill="#22D3EE" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="800">DATABRIDGE CORE</text>
-                  <text x="264" y="136" fill="#F8FAFC" font-family="'JetBrains Mono', monospace" font-size="8">• Auto Schema Profiler</text>
-                  <text x="264" y="150" fill="#F8FAFC" font-family="'JetBrains Mono', monospace" font-size="8">• High-Water Delta Engine</text>
-                  <text x="264" y="164" fill="#34D399" font-family="'JetBrains Mono', monospace" font-size="8">✓ Auto DDL Dynamic Sync</text>
-                </g>
-
-                <!-- DESTINATION NODES (Right Tier) -->
-                <!-- Node 4: Snowflake / Warehouse -->
-                <g class="pulse-node">
-                  <rect x="475" y="62" width="110" height="46" rx="7" fill="#0F172A" stroke="#818CF8" stroke-width="1.5" />
-                  <circle cx="489" cy="85" r="4.5" fill="#38BDF8" />
-                  <text x="500" y="81" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700">Snowflake</text>
-                  <text x="500" y="94" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="7.5">PROD_WAREHOUSE</text>
-                </g>
-
-                <!-- Node 5: Power BI Semantic Refreshes -->
-                <g class="pulse-node">
-                  <rect x="475" y="180" width="110" height="46" rx="7" fill="#0F172A" stroke="#F59E0B" stroke-width="1.5" />
-                  <circle cx="489" cy="203" r="4.5" fill="#F59E0B" />
-                  <text x="500" y="199" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700">Power BI</text>
-                  <text x="500" y="212" fill="#34D399" font-family="'JetBrains Mono', monospace" font-size="7.5">XMLA Auto Refresh</text>
+                  <rect x="575" y="220" width="125" height="52" rx="8" fill="url(#nodeBg)" stroke="#3B82F6" stroke-width="1.8" />
+                  <circle cx="589" cy="246" r="5" fill="#3B82F6" filter="url(#glowNode)" />
+                  <text x="601" y="241" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="12" font-weight="700">SQL DB</text>
+                  <text x="601" y="256" fill="#93C5FD" font-family="'JetBrains Mono', monospace" font-size="8.5">Target Database</text>
                 </g>
               </svg>
 
-              <!-- Telemetry Status Strip -->
-              <div class="pipeline-telemetry-strip">
-                <div class="telemetry-item">
-                  <span>Stream Protocol:</span>
-                  <span class="telemetry-val">PyArrow / JDBC</span>
-                </div>
-                <div class="telemetry-item">
-                  <span>Ingestion Rate:</span>
-                  <span class="telemetry-val" id="sim-throughput">142.5 MB/s</span>
-                </div>
-                <div class="telemetry-item">
-                  <span>Data Loss:</span>
-                  <span class="telemetry-val" style="color: #34D399;">0.0000%</span>
-                </div>
-              </div>
+
             </div>
           </div>
 
@@ -366,38 +387,38 @@
           <div class="comparison-card chaos" data-reveal="fade-right">
             <span class="card-badge bad">❌ LEGACY AD-HOC ETL (THE CHAOS)</span>
             <h3>Brittle, High-Risk Custom Scripts</h3>
-            <p class="text-muted">Handcrafted Python, SSIS packages, and cron runners that constantly require emergency patches.</p>
+            <p class="text-muted">Handcrafted Python scripts, SSIS packages, and manual SQL runs that constantly break and lock databases.</p>
 
             <div class="comparison-list">
               <div class="comparison-item">
                 <div class="comparison-icon bad">✕</div>
                 <div class="comparison-text">
-                  <h4>Silent Schema Breakages</h4>
-                  <p>Upstream DBAs add or alter a column in Oracle/SQL Server, causing downstream staging loads to fail silently.</p>
+                  <h4>Duplicate Data & Duplicate Primary Keys</h4>
+                  <p>Ad-hoc incremental scripts lack PK upsert logic, re-inserting today's records and corrupting target warehouse tables.</p>
                 </div>
               </div>
 
               <div class="comparison-item">
                 <div class="comparison-icon bad">✕</div>
                 <div class="comparison-text">
-                  <h4>Plain-Text Credential Vulnerabilities</h4>
-                  <p>Database passwords stored in unencrypted `.env` files, config scripts, and developer workstations.</p>
+                  <h4>Uncontrolled Procedure Collisions</h4>
+                  <p>Stored procedures execute out of order without dependency sequencing, causing race conditions and locked tables.</p>
                 </div>
               </div>
 
               <div class="comparison-item">
                 <div class="comparison-icon bad">✕</div>
                 <div class="comparison-text">
-                  <h4>Severe Production DB Strain</h4>
-                  <p>Unoptimized full table scans lock transactional ERP databases during peak business hours.</p>
+                  <h4>Plain-Text Azure & DB Credentials</h4>
+                  <p>Azure AD Service Principal keys and database passwords stored in unencrypted config files and scripts.</p>
                 </div>
               </div>
 
               <div class="comparison-item">
                 <div class="comparison-icon bad">✕</div>
                 <div class="comparison-text">
-                  <h4>Stale Executive Dashboards</h4>
-                  <p>Business intelligence teams wait hours for manual data pipeline re-runs after unexpected ETL halts.</p>
+                  <h4>Zero Execution Visibility & Stale Reports</h4>
+                  <p>No per-table row counts or error logging, leaving business intelligence teams unaware when Power BI models fail to refresh.</p>
                 </div>
               </div>
             </div>
@@ -406,39 +427,39 @@
           <!-- Control Card (With DataBridge) -->
           <div class="comparison-card control" data-reveal="fade-left">
             <span class="card-badge good">✓ DATABRIDGE ORCHESTRATION (THE CONTROL)</span>
-            <h3>Automated, Resilient & Deterministic</h3>
-            <p class="text-muted">Enterprise-grade multi-source ingestion engine with zero code maintenance and sub-second failover.</p>
+            <h3>Automated, Self-Managed ETL Engine</h3>
+            <p class="text-muted">Extracts from Oracle, SQL Server, Excel & SharePoint, runs procedures, loads warehouses, and polls Power BI refreshes.</p>
 
             <div class="comparison-list">
               <div class="comparison-item">
                 <div class="comparison-icon good">✓</div>
                 <div class="comparison-text">
-                  <h4>Dynamic Auto DDL Alignment</h4>
-                  <p>Non-destructive schema evolution detects column additions and type widenings, syncing warehouse tables instantly.</p>
+                  <h4>Smart Load Strategies (Full, Append, Merge)</h4>
+                  <p>Append automatically switches to Merge if today's data is present, guaranteeing zero duplicates and upserting by Primary Key.</p>
                 </div>
               </div>
 
               <div class="comparison-item">
                 <div class="comparison-icon good">✓</div>
                 <div class="comparison-text">
-                  <h4>AES-256 Encrypted Credential Vault</h4>
-                  <p>Zero plaintext secrets. Hardware-level cryptographic isolation with role-based JWT access controls.</p>
+                  <h4>Sequenced Stored Procedure Execution</h4>
+                  <p>Register source procedures mapped to projects, executing concurrently in parallel groups or sequentially by sequence numbers.</p>
                 </div>
               </div>
 
               <div class="comparison-item">
                 <div class="comparison-icon good">✓</div>
                 <div class="comparison-text">
-                  <h4>High-Watermark Delta Ingestion</h4>
-                  <p>Extracts only updated rows using indexed timestamps and change tracking, reducing network load by 80%.</p>
+                  <h4>Azure AD MSAL Power BI REST Refreshes</h4>
+                  <p>Centralized Client ID, Tenant ID, and Client Secret authentication with REST API polling until semantic model refresh completes.</p>
                 </div>
               </div>
 
               <div class="comparison-item">
                 <div class="comparison-icon good">✓</div>
                 <div class="comparison-text">
-                  <h4>Automated Power BI XMLA Triggers</h4>
-                  <p>Downstream semantic models refresh the moment ingestion validates, delivering real-time decision intelligence.</p>
+                  <h4>Transaction Logs & Company Scope RBAC</h4>
+                  <p>Full run audit logs tracking per-table status, row counts (extracted, inserted, updated), error tracebacks, and company isolation.</p>
                 </div>
               </div>
             </div>
@@ -475,21 +496,21 @@
             </div>
             <h3 class="capability-title">Multi-Source Connection & Schema Autodiscovery</h3>
             <p class="capability-desc">
-              Connect to Oracle (11g through 21c), Microsoft SQL Server, PostgreSQL, MySQL, and legacy ERP systems in seconds. DataBridge introspects database catalogs, primary keys, foreign constraints, partition indexes, and translates proprietary data types into standard cloud-native schemas automatically.
+              Connect to <strong style="color: #F97316;">Oracle Fusion ERP Cloud</strong>, Salesforce, Oracle DB, SQL DB, SharePoint, and Excel in seconds. DataBridge introspects catalogs, API schemas, foreign constraints, and partition indexes, translating proprietary data types into standard target schemas automatically.
             </p>
             <div class="capability-interactive-preview">
-              <code>&gt; INTROSPECT_SOURCE(driver="Oracle-21c", catalog="FIN_PROD") <br>
-              &gt; [SUCCESS] 428 Tables Profiled | Primary Keys Mapped | Zero Data Loss</code>
+              <code>&gt; INTROSPECT_SOURCES(sources=["Oracle_Fusion_ERP", "Salesforce", "Oracle_DB", "SQL_DB", "SharePoint", "Excel"]) <br>
+              &gt; [SUCCESS] All Sources Profiled | Primary Keys Mapped | Zero Data Loss</code>
             </div>
             <div class="capability-tags">
-              <span class="capability-tag">Oracle OCI</span>
-              <span class="capability-tag">MS SQL ODBC 18</span>
-              <span class="capability-tag">Postgres WAL</span>
-              <span class="capability-tag">Type Translation</span>
+              <span class="capability-tag" style="background: rgba(249, 115, 22, 0.18); border-color: rgba(249, 115, 22, 0.5); color: #F97316; font-weight: 700;">★ Oracle Fusion ERP</span>
+              <span class="capability-tag">Salesforce API</span>
+              <span class="capability-tag">Oracle DB &amp; SQL DB</span>
+              <span class="capability-tag">SharePoint &amp; Excel</span>
             </div>
           </div>
 
-          <!-- Capability 2: Intelligent Extraction Strategies -->
+          <!-- Capability 2: 3 Configurable Load Strategies per Table -->
           <div class="capability-card" data-reveal="fade-up" style="transition-delay: 0.15s;">
             <div class="capability-icon-box">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -498,36 +519,38 @@
                 <line x1="12" y1="22.08" x2="12" y2="12"></line>
               </svg>
             </div>
-            <h3 class="capability-title">Intelligent High-Performance Extraction</h3>
+            <h3 class="capability-title">3 Load Strategies (Full, Append, Merge)</h3>
             <p class="capability-desc">
-              Choose from <strong>Full Snapshot Load</strong>, <strong>High-Watermark Delta Sync</strong>, <strong>Smart Merge Override</strong>, and <strong>Bulk-Streamed Staging</strong>. PyArrow in-memory serialization eliminates disk I/O bottlenecks.
+              Choose <strong>Full Load</strong> (replaces target data), <strong>Append</strong> (incremental via tracking column, auto-switches to Merge if today's data is present to prevent duplicates), or <strong>Merge</strong> (PK upsert).
             </p>
             <div class="capability-tags">
-              <span class="capability-tag">Delta Capture</span>
-              <span class="capability-tag">PyArrow Buffering</span>
-              <span class="capability-tag">Collision Resolution</span>
+              <span class="capability-tag">Full Load</span>
+              <span class="capability-tag">Append Auto-Merge</span>
+              <span class="capability-tag">PK Upsert Merge</span>
             </div>
           </div>
 
-          <!-- Capability 3: Automated Warehouse DDL Alignment -->
+          <!-- Capability 3: Stored Procedure Sequence & Parallel Groups -->
           <div class="capability-card" data-reveal="fade-up">
             <div class="capability-icon-box">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
               </svg>
             </div>
-            <h3 class="capability-title">Automated Warehouse DDL Alignment</h3>
+            <h3 class="capability-title">Stored Procedures & Parallel Execution</h3>
             <p class="capability-desc">
-              Never let an upstream column change crash your pipeline. When source tables mutate, DataBridge issues non-destructive DDL alterations to target Snowflake, BigQuery, or Databricks tables with zero pipeline stoppage.
+              Register and execute source stored procedures mapped to projects. DataBridge runs procedures concurrently in parallel groups or sequentially using sequence numbers, with complete run logging.
             </p>
             <div class="capability-tags">
-              <span class="capability-tag">Schema Drift Detection</span>
-              <span class="capability-tag">Safe ALTER TABLE</span>
-              <span class="capability-tag">Zero Pipeline Halts</span>
+              <span class="capability-tag">Procedure Registration</span>
+              <span class="capability-tag">Parallel Groups</span>
+              <span class="capability-tag">Sequence Ordering</span>
             </div>
           </div>
 
-          <!-- Capability 4: Post-Ingestion Orchestration & Power BI -->
+          <!-- Capability 4: Azure AD MSAL Power BI Model Refresh -->
           <div class="capability-card" data-reveal="fade-up" style="transition-delay: 0.15s;">
             <div class="capability-icon-box">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -536,18 +559,18 @@
                 <line x1="6" y1="20" x2="6" y2="14"></line>
               </svg>
             </div>
-            <h3 class="capability-title">Post-Ingestion & Power BI Triggers</h3>
+            <h3 class="capability-title">Azure AD MSAL Power BI Model Refresh</h3>
             <p class="capability-desc">
-              Execute post-load SQL transformations and stored procedures the moment staging completes. Automatically triggers Power BI dataset XMLA/REST API refreshes so executive analytics are always synchronized.
+              Authenticates via Azure AD (MSAL service principal using Client ID, Tenant ID, Client Secret), calls Power BI REST API after extraction, and polls until semantic model refresh completes or fails.
             </p>
             <div class="capability-tags">
-              <span class="capability-tag">Power BI XMLA</span>
-              <span class="capability-tag">Stored Procedure Cascade</span>
-              <span class="capability-tag">Data Quality Checks</span>
+              <span class="capability-tag">Azure AD MSAL</span>
+              <span class="capability-tag">Power BI REST API</span>
+              <span class="capability-tag">Status Polling</span>
             </div>
           </div>
 
-          <!-- Capability 5: Enterprise-Grade Security & Monitoring -->
+          <!-- Capability 5: Transaction Logs & Company-Scoped Access -->
           <div class="capability-card" data-reveal="fade-up" style="transition-delay: 0.3s;">
             <div class="capability-icon-box">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -555,15 +578,14 @@
                 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
               </svg>
             </div>
-            <h3 class="capability-title">Enterprise Security & Compliance</h3>
+            <h3 class="capability-title">Transaction Logs & Company Scope RBAC</h3>
             <p class="capability-desc">
-              Strict multi-tenant architecture with JWT token authentication, AES-256 credential encryption vault, role-based access control (RBAC), and immutable audit logs ready for SOC2, HIPAA, and ISO 27001 reviews.
+              Centralized frontend UI for managing projects, mappings, and credentials. Full transaction log audit views tracking per-table status, row counts (extracted, inserted, updated), error logs, and company scope isolation.
             </p>
             <div class="capability-tags">
-              <span class="capability-tag">AES-256 Vault</span>
-              <span class="capability-tag">JWT RBAC</span>
-              <span class="capability-tag">SOC2 Ready</span>
-              <span class="capability-tag">Audit Streaming</span>
+              <span class="capability-tag">Transaction Logs</span>
+              <span class="capability-tag">Per-Table Row Metrics</span>
+              <span class="capability-tag">Company Scope RBAC</span>
             </div>
           </div>
 
@@ -592,21 +614,21 @@
               <span class="tier-number">TIER 01</span>
               <h3 class="tier-title">Enterprise Sources</h3>
               <div class="tier-items-list">
-                <div class="tier-item-pill">
-                  <span>Oracle Database</span>
-                  <span class="sub">11g/19c/21c</span>
+                <div class="tier-item-pill" style="border-color: rgba(249, 115, 22, 0.6); background: rgba(249, 115, 22, 0.1);">
+                  <span style="color: #F97316; font-weight: 700;">★ Oracle Fusion</span>
+                  <span class="sub" style="color: #FDBA74;">ERP Cloud REST/SOAP</span>
                 </div>
                 <div class="tier-item-pill">
-                  <span>MS SQL Server</span>
-                  <span class="sub">2016-2022</span>
+                  <span>Salesforce</span>
+                  <span class="sub">CRM API</span>
                 </div>
                 <div class="tier-item-pill">
-                  <span>PostgreSQL / MySQL</span>
-                  <span class="sub">Native Driver</span>
+                  <span>Oracle DB &amp; SQL DB</span>
+                  <span class="sub">Relational DBs</span>
                 </div>
                 <div class="tier-item-pill">
-                  <span>Legacy ERP Systems</span>
-                  <span class="sub">ODBC / JDBC</span>
+                  <span>SharePoint &amp; Excel</span>
+                  <span class="sub">Files &amp; Lists</span>
                 </div>
               </div>
             </div>
@@ -617,20 +639,20 @@
               <h3 class="tier-title text-cyan">DataBridge Core</h3>
               <div class="tier-items-list">
                 <div class="tier-item-pill" style="border-color: rgba(6, 182, 212, 0.4);">
-                  <span>React 19 Admin Portal</span>
-                  <span class="sub">Vite UI</span>
+                  <span>Automated ETL Engine</span>
+                  <span class="sub">Orchestrator</span>
                 </div>
                 <div class="tier-item-pill" style="border-color: rgba(6, 182, 212, 0.4);">
-                  <span>Flask 3 API Gateway</span>
-                  <span class="sub">REST / Auth</span>
+                  <span>Delta Change Capture</span>
+                  <span class="sub">High Watermark</span>
                 </div>
                 <div class="tier-item-pill" style="border-color: rgba(6, 182, 212, 0.4);">
-                  <span>SQLAlchemy 2.0 Engine</span>
-                  <span class="sub">Introspection</span>
+                  <span>Dynamic DDL Alignment</span>
+                  <span class="sub">Auto Sync</span>
                 </div>
                 <div class="tier-item-pill" style="border-color: rgba(6, 182, 212, 0.4);">
-                  <span>Streaming Worker Pods</span>
-                  <span class="sub">PyArrow</span>
+                  <span>Power BI Dataset Refresh</span>
+                  <span class="sub">XMLA / REST</span>
                 </div>
               </div>
             </div>
@@ -638,23 +660,23 @@
             <!-- Tier 3: Target Warehouse Tier -->
             <div class="arch-tier-card">
               <span class="tier-number">TIER 03</span>
-              <h3 class="tier-title">Data Warehouse</h3>
+              <h3 class="tier-title">Target Destinations</h3>
               <div class="tier-items-list">
                 <div class="tier-item-pill">
-                  <span>Snowflake RAW/PROD</span>
-                  <span class="sub">Zero-Copy</span>
+                  <span>Oracle Warehouse</span>
+                  <span class="sub">Target DB</span>
                 </div>
                 <div class="tier-item-pill">
-                  <span>Databricks Delta</span>
-                  <span class="sub">Parquet Lake</span>
+                  <span>SQL DB Target</span>
+                  <span class="sub">Relational Target</span>
                 </div>
                 <div class="tier-item-pill">
-                  <span>Google BigQuery</span>
-                  <span class="sub">Stream API</span>
+                  <span>Automated Staging</span>
+                  <span class="sub">Zero Data Loss</span>
                 </div>
                 <div class="tier-item-pill">
-                  <span>Azure Synapse / Fabric</span>
-                  <span class="sub">OneLake</span>
+                  <span>Real-Time Sync</span>
+                  <span class="sub">Active Pipeline</span>
                 </div>
               </div>
             </div>
@@ -694,13 +716,13 @@
                   <circle cx="12" cy="12" r="10"></circle>
                   <circle cx="12" cy="12" r="4"></circle>
                 </svg>
-                <span>React 19 & Vite</span>
+                <span>React (Vite UI)</span>
               </div>
               <div class="tech-badge">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="2">
                   <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
                 </svg>
-                <span>Flask 3 API</span>
+                <span>Python Flask (MVC Pattern)</span>
               </div>
               <div class="tech-badge">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2">
@@ -708,27 +730,27 @@
                   <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
                   <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
                 </svg>
-                <span>SQLAlchemy 2.0</span>
+                <span>Oracle &amp; SQL Server Targets</span>
               </div>
               <div class="tech-badge">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F43F5E" stroke-width="2">
-                  <circle cx="12" cy="12" r="9"></circle>
-                  <path d="M12 7v5l3 3"></path>
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                 </svg>
-                <span>Oracle OCI Thin/Thick</span>
+                <span>Azure AD MSAL Auth</span>
               </div>
               <div class="tech-badge">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2">
                   <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
                   <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                 </svg>
-                <span>Docker & Kubernetes</span>
+                <span>Docker-Compatible</span>
               </div>
               <div class="tech-badge">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2">
                   <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
                 </svg>
-                <span>PyArrow Zero-Copy</span>
+                <span>CSV Staging &amp; Auto-Tables</span>
               </div>
             </div>
           </div>
@@ -764,29 +786,29 @@
 
           <div class="simulator-controls">
             <div class="control-group">
-              <label class="control-label" for="sim-source-db">Source Database</label>
+              <label class="control-label" for="sim-source-db">Source System</label>
               <select class="control-select" id="sim-source-db">
-                <option value="oracle">Oracle 19c Enterprise (ERP Financials)</option>
-                <option value="mssql">MS SQL Server 2022 (CRM Sales)</option>
-                <option value="postgres">PostgreSQL 16 (Digital Transactions)</option>
+                <option value="oracle">Oracle Database</option>
+                <option value="mssql">SQL Server Database</option>
+                <option value="excel">Excel Files (.xlsx / .csv)</option>
+                <option value="sharepoint">SharePoint Lists</option>
               </select>
             </div>
 
             <div class="control-group">
-              <label class="control-label" for="sim-strategy">Ingestion Strategy</label>
+              <label class="control-label" for="sim-strategy">Load Strategy</label>
               <select class="control-select" id="sim-strategy">
-                <option value="delta">High-Watermark Delta Sync</option>
-                <option value="smart-merge">Smart Merge Override (Deduplicate)</option>
-                <option value="full">Full Snapshot Refresh</option>
+                <option value="append">Append (Auto-Merge if Present)</option>
+                <option value="merge">Merge (Upsert via Primary Key)</option>
+                <option value="full">Full Load (Replaces Target Data)</option>
               </select>
             </div>
 
             <div class="control-group">
-              <label class="control-label" for="sim-target-wh">Target Data Warehouse</label>
+              <label class="control-label" for="sim-target-wh">Target Warehouse</label>
               <select class="control-select" id="sim-target-wh">
-                <option value="snowflake">Snowflake (RAW_STAGING_DB)</option>
-                <option value="databricks">Databricks Delta Lake (Silver Tier)</option>
-                <option value="synapse">Azure Synapse OneLake</option>
+                <option value="oracle_wh">Oracle Warehouse Target</option>
+                <option value="mssql_wh">SQL Server Warehouse Target</option>
               </select>
             </div>
 
@@ -805,7 +827,7 @@
             <div class="log-line">
               <span class="log-time">10:42:01.015</span>
               <span class="log-tag info">CONFIG</span>
-              <span>Active drivers: Oracle OCI Hybrid, Microsoft ODBC 18, PyArrow 14.0.2 Memory Streaming Engine.</span>
+              <span>Active drivers: Oracle OCI Hybrid, Microsoft ODBC 18, High-Speed Memory Streaming Engine.</span>
             </div>
           </div>
         </div>
@@ -829,49 +851,49 @@
           
           <div class="step-card" data-reveal="fade-up">
             <div class="step-num-badge">01</div>
-            <h3 class="step-title">Register Source DB</h3>
+            <h3 class="step-title">Register Sources</h3>
             <p class="step-desc">
-              Input connection credentials into the AES-256 Vault. DataBridge tests socket connectivity, connection pooling, and verifies minimal read permissions.
+              Connect to Oracle, SQL Server, Excel files (.xlsx/.csv), and SharePoint lists with centralized credential management.
             </p>
           </div>
 
           <div class="step-card" data-reveal="fade-up" style="transition-delay: 0.1s;">
             <div class="step-num-badge">02</div>
-            <h3 class="step-title">Auto-Profile Schema</h3>
+            <h3 class="step-title">Configure Table Extraction</h3>
             <p class="step-desc">
-              DataBridge introspects catalogs, foreign keys, partition ranges, primary keys, and data types across Oracle, SQL Server, and relational databases.
+              Map each source table individually in the UI—define column selection, load strategy (Full, Append, Merge), tracking columns, and primary keys.
             </p>
           </div>
 
           <div class="step-card" data-reveal="fade-up" style="transition-delay: 0.2s;">
             <div class="step-num-badge">03</div>
-            <h3 class="step-title">Configure Load Strategy</h3>
+            <h3 class="step-title">CSV Staging & Warehouse Load</h3>
             <p class="step-desc">
-              Select Full Load, Incremental Delta (High-Watermark timestamp), or Smart Merge Override for collision-free deduplication and upserts.
+              Extracts data on demand or schedule, stages it as a CSV, and loads into target warehouse (automatically creating destination tables if missing).
             </p>
           </div>
 
           <div class="step-card" data-reveal="fade-up">
             <div class="step-num-badge">04</div>
-            <h3 class="step-title">Run High-Speed Ingestion</h3>
+            <h3 class="step-title">Execute Stored Procedures</h3>
             <p class="step-desc">
-              Multi-threaded PyArrow workers stream records in chunked memory buffers directly to the target staging layer without hitting local disk.
+              Registers and executes source stored procedures in defined sequence numbers and parallel groups (running concurrently or sequentially).
             </p>
           </div>
 
           <div class="step-card" data-reveal="fade-up" style="transition-delay: 0.1s;">
             <div class="step-num-badge">05</div>
-            <h3 class="step-title">Auto DDL Alignment</h3>
+            <h3 class="step-title">Azure AD MSAL Power BI Refresh</h3>
             <p class="step-desc">
-              Target warehouse tables are inspected and non-destructively updated with automatic `ALTER TABLE` DDL executions if upstream schemas changed.
+              Authenticates via Azure AD (MSAL service principal), calls Power BI REST API, and polls until semantic model refresh completes or fails.
             </p>
           </div>
 
           <div class="step-card" data-reveal="fade-up" style="transition-delay: 0.2s;">
             <div class="step-num-badge">06</div>
-            <h3 class="step-title">Trigger Power BI Refresh</h3>
+            <h3 class="step-title">Transaction Log Audit</h3>
             <p class="step-desc">
-              Post-ingestion validation runs automatically, followed by a secure REST/XMLA trigger that refreshes downstream Power BI semantic models.
+              Logs every run in Transaction Logs view with per-table status, row counts (extracted, inserted, updated), error logs, and company scope RBAC.
             </p>
           </div>
 
@@ -1059,7 +1081,7 @@
         <div class="testimonials-grid" data-reveal="fade-up">
           <div class="testimonial-card">
             <p class="quote-text">
-              "We migrated 45 Oracle 19c financial tables to Snowflake in an afternoon. In the past, writing and testing custom delta extraction scripts would have consumed our entire sprint."
+              "We mapped and automated 45 Oracle and SQL Server tables into our target warehouse in an afternoon. The Append strategy's auto-switch to Merge guaranteed zero duplicate records."
             </p>
             <div class="author-info">
               <div class="author-avatar">MS</div>
@@ -1072,7 +1094,7 @@
 
           <div class="testimonial-card">
             <p class="quote-text">
-              "The automatic DDL alignment alone saved our sanity. Whenever the ERP team adds a column, DataBridge syncs our warehouse tables seamlessly without waking up on-call engineers at 2 AM."
+              "Executing registered stored procedures in sequence numbers and parallel groups solved our complex dependency chain. Some procedures run concurrently while others wait cleanly."
             </p>
             <div class="author-info">
               <div class="author-avatar">AL</div>
@@ -1085,7 +1107,7 @@
 
           <div class="testimonial-card">
             <p class="quote-text">
-              "Automating the XMLA Power BI refresh after our SQL Server staging runs gave our executive leadership team sub-5-minute report freshness for the first time in company history."
+              "Azure AD MSAL Service Principal authentication with Power BI REST API polling gave our executive leadership team sub-5-minute report freshness with complete Transaction Logs view visibility."
             </p>
             <div class="author-info">
               <div class="author-avatar">DK</div>
@@ -1113,31 +1135,31 @@
           
           <div class="faq-item open">
             <button class="faq-question">
-              <span>How does DataBridge handle schema drift during live ingestion?</span>
+              <span>How does DataBridge prevent duplicate records during incremental loads?</span>
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              DataBridge includes an intelligent Schema Profiler engine that introspects upstream table definitions before every extraction. If new columns or safe type expansions are detected, it executes non-destructive `ALTER TABLE` DDL statements on your target warehouse (Snowflake, BigQuery, Databricks) prior to staging the incoming records.
+              DataBridge supports 3 load strategies: Full Load, Append, and Merge. In Append mode, DataBridge uses a tracking column and automatically switches to Merge if today's data is already present in the target warehouse, preventing duplicates by upserting based on a Primary Key.
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question">
-              <span>Does DataBridge store our raw business data?</span>
+              <span>How are stored procedures executed within pipelines?</span>
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              No. DataBridge follows a zero-retention, streaming architecture. Records are extracted directly into in-memory PyArrow buffers and streamed straight to your private cloud data warehouse staging layer. No customer business records are ever persisted on DataBridge control disks.
+              DataBridge registers source database stored procedures mapped to projects. Procedures are assigned sequence numbers and parallel groups—allowing independent procedures to run concurrently while dependent steps wait for prior steps to finish. Every run is logged.
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question">
-              <span>Which Oracle and SQL Server versions are supported?</span>
+              <span>Which source systems and target warehouses are supported?</span>
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              We provide certified native driver support for Oracle 11g Release 2 through 21c (Thin and Thick OCI drivers), and Microsoft SQL Server 2014 through SQL Server 2022 (including Azure SQL Database and Managed Instances).
+              DataBridge supports Oracle, SQL Server, Excel files (.xlsx / .csv), and SharePoint lists as data sources, and loads directly into Oracle and SQL Server target warehouses.
             </div>
           </div>
 
@@ -1147,7 +1169,7 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              Upon successful validation and commit of the warehouse staging load, DataBridge issues a secure Microsoft Graph / XMLA REST API call to your designated Power BI workspace to trigger an immediate, partition-level semantic dataset refresh.
+              After extraction, DataBridge authenticates via Azure AD (MSAL / service principal with Client ID, Tenant ID, Client Secret stored centrally), calls the Power BI REST API, and polls until the semantic model refresh completes or fails—logging results in the Transaction Logs view.
             </div>
           </div>
 
@@ -1222,22 +1244,20 @@
                 </div>
 
                 <div class="form-group">
-                  <label class="form-label" for="demo-source">Primary Source DB</label>
+                  <label class="form-label" for="demo-source">Primary Source System</label>
                   <select id="demo-source" class="form-select">
-                    <option value="oracle">Oracle Database (11g/19c/21c)</option>
+                    <option value="oracle">Oracle Database</option>
                     <option value="mssql">Microsoft SQL Server</option>
-                    <option value="postgres">PostgreSQL</option>
-                    <option value="multiple">Multi-Source Hybrid Mix</option>
+                    <option value="excel">Excel Files (.xlsx / .csv)</option>
+                    <option value="sharepoint">SharePoint Lists</option>
                   </select>
                 </div>
 
                 <div class="form-group full-width">
-                  <label class="form-label" for="demo-warehouse">Target Cloud Warehouse</label>
+                  <label class="form-label" for="demo-warehouse">Target Destination</label>
                   <select id="demo-warehouse" class="form-select">
-                    <option value="snowflake">Snowflake</option>
-                    <option value="databricks">Databricks Delta Lake</option>
-                    <option value="bigquery">Google BigQuery</option>
-                    <option value="synapse">Microsoft Fabric / Azure Synapse</option>
+                    <option value="oracle_wh">Oracle Warehouse Target</option>
+                    <option value="mssql_wh">SQL Server Warehouse Target</option>
                   </select>
                 </div>
 
@@ -1281,7 +1301,7 @@
             <span>DataBridge</span>
           </div>
           <p>
-            The enterprise multi-source data ingestion and pipeline orchestration platform. Zero manual scripting across Oracle, SQL Server, Snowflake, and Power BI.
+            Self-managed ETL tool connecting Oracle, SQL Server, Excel, and SharePoint to Oracle &amp; SQL Server warehouses, executing procedures, and refreshing Power BI semantic models.
           </p>
         </div>
 
@@ -1326,7 +1346,7 @@
       <!-- Footer Bottom -->
       <div class="footer-bottom">
         <div>
-          © 2026 DataBridge Systems Inc. All rights reserved. Powered by React 19, Vite, Flask 3 & PyArrow.
+          © 2026 DataBridge Systems Inc. All rights reserved. Powered by React 19, Vite & Flask 3.
         </div>
         <div style="display: flex; gap: 1.5rem;">
           <a href="#" class="footer-link">Status Page</a>
