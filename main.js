@@ -290,7 +290,7 @@ function initPipelineSimulator() {
 }
 
 /* --------------------------------------------------------------------------
-   4. Interactive ROI & TCO Calculator
+   4. Interactive ROI & Pipeline Efficiency Calculator
    -------------------------------------------------------------------------- */
 function initRoiCalculator() {
   const dbSlider = document.getElementById('slider-sources');
@@ -299,10 +299,9 @@ function initRoiCalculator() {
   const volDisplay = document.getElementById('val-volume-display');
   
   const hoursOutput = document.getElementById('roi-hours-saved');
-  const moneyOutput = document.getElementById('roi-dollars-saved');
-  const breakevenOutput = document.getElementById('roi-breakeven');
+  const efficiencyOutput = document.getElementById('roi-efficiency-gain');
 
-  if (!dbSlider || !volSlider || !hoursOutput || !moneyOutput) return;
+  if (!dbSlider || !volSlider || !hoursOutput) return;
 
   function calculateROI() {
     const dbCount = parseInt(dbSlider.value, 10);
@@ -318,18 +317,13 @@ function initRoiCalculator() {
       }
     }
 
-    // Formulas based on enterprise data engineering benchmark:
-    // Avg manual scripting/maintenance: 45 hours / DB / year
-    // Avg senior data engineer rate: $95 / hour
-    // Network/compute optimization: ~$12 / GB / year in saved warehouse compute
+    // Formulas based on enterprise data engineering benchmark
     const hoursSaved = Math.round(dbCount * 48 + (volGB * 0.15));
-    const dollarsSaved = Math.round((hoursSaved * 95) + (volGB * 4.5));
-    const breakEvenWeeks = Math.max(1, Math.round(14 / Math.sqrt(dbCount)));
+    const effortReduced = Math.min(99, Math.round(88 + Math.min(dbCount, 10) * 0.8));
 
     hoursOutput.textContent = `${hoursSaved.toLocaleString()} hrs / yr`;
-    moneyOutput.textContent = `$${dollarsSaved.toLocaleString()}`;
-    if (breakevenOutput) {
-      breakevenOutput.textContent = `${breakEvenWeeks} Days`;
+    if (efficiencyOutput) {
+      efficiencyOutput.textContent = `${effortReduced}%`;
     }
   }
 

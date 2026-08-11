@@ -75,7 +75,6 @@
         <a href="#capabilities" class="nav-link">Capabilities</a>
         <a href="#architecture" class="nav-link">Architecture</a>
         <a href="#how-it-works" class="nav-link">How It Works</a>
-        <a href="#roi" class="nav-link">ROI & Value</a>
         <a href="#security" class="nav-link">Security Vault</a>
       </nav>
 
@@ -113,7 +112,6 @@
       <a href="#capabilities" class="drawer-link">Capabilities</a>
       <a href="#architecture" class="drawer-link">Architecture</a>
       <a href="#how-it-works" class="drawer-link">How It Works</a>
-      <a href="#roi" class="drawer-link">ROI & Value</a>
       <a href="#security" class="drawer-link">Security Vault</a>
       <a href="#demo" class="drawer-link text-cyan">Request Demo</a>
     </div>
@@ -377,7 +375,7 @@
           <span class="section-badge indigo">THE PIPELINE BOTTLENECK</span>
           <h2>The Legacy Scripting Trap vs. <span class="text-gradient-cyan">DataBridge Control</span></h2>
           <p class="section-description">
-            Data teams spend up to 70% of their engineering cycles fixing broken cron scripts, unhandled DDL changes, and stale Power BI reports. Here is why ad-hoc ETL breaks at scale.
+            Traditional ad-hoc ETL scripts break silently and corrupt data. DataBridge automates pipeline execution with zero downtime and total control.
           </p>
         </div>
 
@@ -385,40 +383,40 @@
           
           <!-- Chaos Card (Before DataBridge) -->
           <div class="comparison-card chaos" data-reveal="fade-right">
-            <span class="card-badge bad">❌ LEGACY AD-HOC ETL (THE CHAOS)</span>
-            <h3>Brittle, High-Risk Custom Scripts</h3>
-            <p class="text-muted">Handcrafted Python scripts, SSIS packages, and manual SQL runs that constantly break and lock databases.</p>
+            <span class="card-badge bad">❌ LEGACY AD-HOC ETL</span>
+            <h3>Brittle & Manual Scripts</h3>
+            <p class="text-muted">Handcrafted Python scripts and manual SQL jobs that constantly break and lock databases.</p>
 
             <div class="comparison-list">
               <div class="comparison-item">
                 <div class="comparison-icon bad">✕</div>
                 <div class="comparison-text">
-                  <h4>Duplicate Data & Duplicate Primary Keys</h4>
-                  <p>Ad-hoc incremental scripts lack PK upsert logic, re-inserting today's records and corrupting target warehouse tables.</p>
+                  <h4>Duplicate Data & Corruption</h4>
+                  <p>Lacks PK upsert logic, re-inserting daily records and corrupting warehouse tables.</p>
                 </div>
               </div>
 
               <div class="comparison-item">
                 <div class="comparison-icon bad">✕</div>
                 <div class="comparison-text">
-                  <h4>Uncontrolled Procedure Collisions</h4>
-                  <p>Stored procedures execute out of order without dependency sequencing, causing race conditions and locked tables.</p>
+                  <h4>Procedure Collisions & Locks</h4>
+                  <p>Procedures run out of order without dependency rules, locking production tables.</p>
                 </div>
               </div>
 
               <div class="comparison-item">
                 <div class="comparison-icon bad">✕</div>
                 <div class="comparison-text">
-                  <h4>Plain-Text Azure & DB Credentials</h4>
-                  <p>Azure AD Service Principal keys and database passwords stored in unencrypted config files and scripts.</p>
+                  <h4>Plain-Text Credentials</h4>
+                  <p>Database passwords and Azure keys exposed in unencrypted config files and scripts.</p>
                 </div>
               </div>
 
               <div class="comparison-item">
                 <div class="comparison-icon bad">✕</div>
                 <div class="comparison-text">
-                  <h4>Zero Execution Visibility & Stale Reports</h4>
-                  <p>No per-table row counts or error logging, leaving business intelligence teams unaware when Power BI models fail to refresh.</p>
+                  <h4>Zero Execution Visibility</h4>
+                  <p>No audit logs or row counts, leaving teams blind when Power BI models fail to refresh.</p>
                 </div>
               </div>
             </div>
@@ -426,40 +424,40 @@
 
           <!-- Control Card (With DataBridge) -->
           <div class="comparison-card control" data-reveal="fade-left">
-            <span class="card-badge good">✓ DATABRIDGE ORCHESTRATION (THE CONTROL)</span>
-            <h3>Automated, Self-Managed ETL Engine</h3>
-            <p class="text-muted">Extracts from Oracle, SQL Server, Excel & SharePoint, runs procedures, loads warehouses, and polls Power BI refreshes.</p>
+            <span class="card-badge good">✓ DATABRIDGE ORCHESTRATION</span>
+            <h3>Automated & Self-Managed</h3>
+            <p class="text-muted">Orchestrates extraction, procedure sequencing, warehouse loads, and Power BI polling seamlessly.</p>
 
             <div class="comparison-list">
               <div class="comparison-item">
                 <div class="comparison-icon good">✓</div>
                 <div class="comparison-text">
-                  <h4>Smart Load Strategies (Full, Append, Merge)</h4>
-                  <p>Append automatically switches to Merge if today's data is present, guaranteeing zero duplicates and upserting by Primary Key.</p>
+                  <h4>Smart Upsert & Zero Duplicates</h4>
+                  <p>Auto-switches to Merge strategy by Primary Key to guarantee 100% data integrity.</p>
                 </div>
               </div>
 
               <div class="comparison-item">
                 <div class="comparison-icon good">✓</div>
                 <div class="comparison-text">
-                  <h4>Sequenced Stored Procedure Execution</h4>
-                  <p>Register source procedures mapped to projects, executing concurrently in parallel groups or sequentially by sequence numbers.</p>
+                  <h4>Sequenced Execution Queue</h4>
+                  <p>Executes procedures sequentially or in parallel groups with automated lock prevention.</p>
                 </div>
               </div>
 
               <div class="comparison-item">
                 <div class="comparison-icon good">✓</div>
                 <div class="comparison-text">
-                  <h4>Azure AD MSAL Power BI REST Refreshes</h4>
-                  <p>Centralized Client ID, Tenant ID, and Client Secret authentication with REST API polling until semantic model refresh completes.</p>
+                  <h4>Secure MSAL & Power BI Refreshes</h4>
+                  <p>Centralized Azure AD auth with automated REST polling until model refreshes finish.</p>
                 </div>
               </div>
 
               <div class="comparison-item">
                 <div class="comparison-icon good">✓</div>
                 <div class="comparison-text">
-                  <h4>Transaction Logs & Company Scope RBAC</h4>
-                  <p>Full run audit logs tracking per-table status, row counts (extracted, inserted, updated), error tracebacks, and company isolation.</p>
+                  <h4>Real-Time Audit & Telemetry</h4>
+                  <p>Full run trace tracking per-table row counts (extracted, inserted, updated) and errors.</p>
                 </div>
               </div>
             </div>
@@ -901,90 +899,7 @@
       </div>
     </section>
 
-    <!-- ========================================================================
-         BUSINESS VALUE & INTERACTIVE ROI CALCULATOR
-         ======================================================================== -->
-    <section class="section-wrapper" id="roi">
-      <div class="container">
-        <div class="roi-section-container">
-          
-          <!-- Left: 4 Business Value Cards -->
-          <div class="roi-info-pane" data-reveal="fade-right">
-            <span class="section-badge emerald">MEASURABLE IMPACT</span>
-            <h2>Eliminate Pipeline Overhead. <br><span class="text-gradient-cyan">Accelerate Enterprise ROI.</span></h2>
-            <p class="section-description" style="margin-bottom: 2rem;">
-              Replacing custom-scripted ETL with DataBridge cuts engineering overhead, reduces warehouse compute consumption, and guarantees audit readiness.
-            </p>
 
-            <div class="stats-2x2-grid">
-              <div class="stat-roi-card" data-reveal="fade-up">
-                <div class="stat-roi-num counter-item" data-target="95" data-suffix="%">95%</div>
-                <div class="stat-roi-title">Zero-Code Efficiency</div>
-                <div class="stat-roi-desc">Reduces pipeline onboarding from 3 weeks to under 15 minutes.</div>
-              </div>
-
-              <div class="stat-roi-card" data-reveal="fade-up" style="transition-delay: 0.1s;">
-                <div class="stat-roi-num counter-item" data-target="80" data-suffix="%">80%</div>
-                <div class="stat-roi-title">Minimized DB Strain</div>
-                <div class="stat-roi-desc">Smart delta filters and micro-batching eliminate production locking.</div>
-              </div>
-
-              <div class="stat-roi-card" data-reveal="fade-up" style="transition-delay: 0.2s;">
-                <div class="stat-roi-num counter-item" data-target="100" data-suffix="%">100%</div>
-                <div class="stat-roi-title">Audit Readiness</div>
-                <div class="stat-roi-desc">Complete cryptographic logging of every data transfer and user action.</div>
-              </div>
-
-              <div class="stat-roi-card" data-reveal="fade-up" style="transition-delay: 0.3s;">
-                <div class="stat-roi-num">&lt; 5m</div>
-                <div class="stat-roi-title">Real-Time Reports</div>
-                <div class="stat-roi-desc">Immediate Power BI dataset refreshes upon ingest completion.</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right: Interactive ROI / TCO Calculator -->
-          <div class="calculator-box" data-reveal="fade-left">
-            <div class="pipeline-terminal-header" style="margin-bottom: 1.5rem;">
-              <span class="card-badge good">📊 TCO & ROI ESTIMATOR</span>
-              <span class="logo-tag">REAL-TIME</span>
-            </div>
-
-            <div class="slider-group">
-              <div class="slider-header">
-                <span>Source Databases Managed:</span>
-                <span class="slider-value-display" id="val-sources-display">6 Databases</span>
-              </div>
-              <input type="range" min="1" max="30" value="6" class="range-slider" id="slider-sources">
-            </div>
-
-            <div class="slider-group">
-              <div class="slider-header">
-                <span>Monthly Ingestion Volume:</span>
-                <span class="slider-value-display" id="val-volume-display">500 GB / month</span>
-              </div>
-              <input type="range" min="50" max="5000" step="50" value="500" class="range-slider" id="slider-volume">
-            </div>
-
-            <div class="roi-output-panel">
-              <div>
-                <div class="output-value" id="roi-hours-saved">363 hrs / yr</div>
-                <div class="output-label">Engineering Hours Saved</div>
-              </div>
-              <div>
-                <div class="output-value" id="roi-dollars-saved">$36,735</div>
-                <div class="output-label">Estimated Annual Savings</div>
-              </div>
-            </div>
-
-            <div style="margin-top: 1.25rem; font-size: 0.8rem; color: var(--text-muted); text-align: center;">
-              Estimated Break-Even Timeline: <strong style="color: #34D399;" id="roi-breakeven">6 Days</strong> | Based on $95/hr standard data engineering rate.
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
 
     <!-- ========================================================================
          SECURITY, COMPLIANCE & VAULT HIGHLIGHT
