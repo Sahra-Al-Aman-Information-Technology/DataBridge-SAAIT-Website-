@@ -610,6 +610,37 @@ h4 { font-size: 1.2rem; }
   line-height: 1;
 }
 
+.logo-by-saait {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  padding: 0.15rem 0.45rem;
+  background: rgba(34, 211, 238, 0.12);
+  border: 1px solid rgba(34, 211, 238, 0.4);
+  color: #22D3EE;
+  border-radius: 4px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.2);
+}
+
+.footer-saait-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #22D3EE;
+  background: rgba(6, 182, 212, 0.12);
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  margin-top: 0.65rem;
+  margin-bottom: 0.35rem;
+  letter-spacing: 0.03em;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -732,25 +763,25 @@ h4 { font-size: 1.2rem; }
 }
 
 /* --------------------------------------------------------------------------
-   6. Hero Section & Live Pipeline Diagram
+   6. Hero Section & Live Pipeline Diagram (Expanded & Prominent)
    -------------------------------------------------------------------------- */
 .hero-section {
-  padding: 2.25rem 0 2.5rem 0;
+  padding: clamp(3.5rem, 6vh, 5.5rem) 0 clamp(3.5rem, 5vh, 4.5rem) 0;
   position: relative;
   overflow: hidden;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 1.25fr;
-  gap: 2.5rem;
+  grid-template-columns: 1fr 1.32fr;
+  gap: clamp(2.5rem, 3.8vw, 4rem);
   align-items: center;
 }
 
 @media (max-width: 1024px) {
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 2.25rem;
+    gap: 3rem;
   }
 }
 
@@ -759,42 +790,28 @@ h4 { font-size: 1.2rem; }
   z-index: 2;
 }
 
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.25rem 0.75rem;
-  background: rgba(6, 182, 212, 0.08);
-  border: 1px solid rgba(6, 182, 212, 0.25);
-  border-radius: var(--radius-full);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--accent-cyan-light);
-  margin-bottom: 0.85rem;
-}
-
 .hero-title {
-  font-size: clamp(2rem, 3.2vw, 2.85rem);
+  font-size: clamp(2.4rem, 3.8vw, 3.4rem);
   font-weight: 800;
-  line-height: 1.14;
-  margin-bottom: 0.85rem;
+  line-height: 1.12;
+  margin-bottom: 1.25rem;
   letter-spacing: -0.03em;
 }
 
 .hero-subtitle {
-  font-size: 0.96rem;
-  line-height: 1.55;
+  font-size: clamp(1.05rem, 1.2vw, 1.16rem);
+  line-height: 1.68;
   color: var(--text-secondary);
-  margin-bottom: 1.35rem;
-  max-width: 560px;
+  margin-bottom: 2rem;
+  max-width: 580px;
 }
 
 .hero-ctas {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 1.15rem;
   flex-wrap: wrap;
-  margin-bottom: 1.4rem;
+  margin-bottom: 0;
 }
 
 .hero-metrics {
@@ -836,14 +853,482 @@ h4 { font-size: 1.2rem; }
 }
 
 /* Hero Pipeline Visual Stage */
+.hero-visual-wrapper {
+  perspective: 1200px;
+}
+
+.flip-card-container {
+  width: 100%;
+  position: relative;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  min-height: 425px;
+  transition: transform 0.85s cubic-bezier(0.34, 1.35, 0.64, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card-container.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  width: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.flip-card-front.hero-visual-card {
+  position: relative;
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.flip-card-back.hero-visual-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 425px;
+  transform: rotateY(180deg);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.96) 0%, rgba(10, 15, 28, 0.99) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  box-shadow: 0 15px 45px -10px rgba(0, 0, 0, 0.8), 0 0 30px rgba(245, 158, 11, 0.15);
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+.flip-card-container.flipped .flip-card-back.hero-visual-card {
+  z-index: 5;
+}
+
+.flip-card-back::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #F59E0B, #22D3EE, transparent);
+}
+
+/* Flip Toggle Pill Buttons */
+.flip-card-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(245, 158, 11, 0.14);
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  color: #FDE68A;
+  padding: 0.22rem 0.65rem;
+  border-radius: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.18);
+}
+
+.flip-card-toggle-btn:hover {
+  background: rgba(245, 158, 11, 0.28);
+  border-color: #F59E0B;
+  color: #FFFFFF;
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 0 18px rgba(245, 158, 11, 0.4);
+}
+
+.flip-card-toggle-btn.flip-back-btn {
+  background: rgba(6, 182, 212, 0.14);
+  border-color: rgba(34, 211, 238, 0.45);
+  color: #67E8F9;
+}
+
+.flip-card-toggle-btn.flip-back-btn:hover {
+  background: rgba(6, 182, 212, 0.28);
+  border-color: #22D3EE;
+  color: #FFFFFF;
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.4);
+}
+
+/* ==========================================================================
+   Power BI Report Canvas Dashboard View (Balanced & Sleek)
+   ========================================================================== */
+
+.pbi-report-card {
+  padding: 0.8rem 1.15rem !important;
+  display: flex;
+  flex-direction: column;
+  gap: 0.48rem;
+  background: #0A0F1D !important;
+  border: 1px solid rgba(242, 200, 17, 0.35) !important;
+  box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.8), 0 0 30px rgba(242, 200, 17, 0.08) !important;
+}
+
+/* Power BI Topbar */
+.pbi-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.35rem;
+  gap: 0.45rem;
+}
+
+.pbi-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pbi-logo-icon {
+  display: flex;
+  align-items: flex-end;
+  gap: 2.5px;
+  height: 16px;
+  padding: 1px 0;
+}
+
+.pbi-bar {
+  width: 3.5px;
+  background: #F2C811;
+  border-radius: 1px;
+}
+.pbi-bar.bar-1 { height: 7px; opacity: 0.75; }
+.pbi-bar.bar-2 { height: 11px; opacity: 0.9; }
+.pbi-bar.bar-3 { height: 16px; opacity: 1; }
+
+.pbi-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.pbi-app-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 0.8rem;
+  color: #F2C811;
+  letter-spacing: 0.3px;
+}
+
+.pbi-divider {
+  color: #475569;
+  font-size: 0.7rem;
+}
+
+.pbi-report-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.74rem;
+  color: #F8FAFC;
+}
+
+.pbi-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.pbi-live-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: #34D399;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+}
+
+.pbi-live-dot {
+  width: 5.5px;
+  height: 5.5px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 6px #10B981;
+  animation: pulseDot 1.4s infinite;
+}
+
+/* Power BI 4-Card KPI Strip */
+.pbi-kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.45rem;
+}
+
+.pbi-kpi-box {
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 5px;
+  padding: 0.38rem 0.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  border-top: 2px solid #38BDF8;
+}
+
+.pbi-kpi-box.gold-highlight {
+  border-top-color: #F2C811;
+  background: rgba(242, 200, 17, 0.05);
+}
+
+.pbi-kpi-label {
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  color: #94A3B8;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.pbi-kpi-val {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #F8FAFC;
+  line-height: 1.1;
+  transition: all 0.25s ease;
+}
+
+.pbi-kpi-val small {
+  font-size: 0.64rem;
+  font-weight: 500;
+  color: #94A3B8;
+}
+
+.pbi-kpi-trend {
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  font-weight: 600;
+}
+
+.text-green { color: #34D399; }
+.text-cyan { color: #38BDF8; }
+.text-gold { color: #F2C811; }
+
+/* Power BI Visuals 2-Column Grid */
+.pbi-visuals-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.pbi-chart-box {
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 6px;
+  padding: 0.55rem 0.85rem 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.pbi-chart-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #E2E8F0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 0.25rem;
+}
+
+.pbi-live-stream-badge {
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  font-weight: 700;
+  color: #34D399;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  padding: 0.08rem 0.35rem;
+  border-radius: 3px;
+  letter-spacing: 0.3px;
+}
+
+.pbi-live-stream-badge.gold {
+  color: #FDE68A;
+  background: rgba(245, 158, 11, 0.18);
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+.pbi-svg-wrap {
+  width: 100%;
+  height: 128px;
+}
+
+.pbi-chart-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Live Animated SVG Bars */
+.pbi-animated-bar {
+  transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1), y 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pbi-animated-bar.oracle-bar {
+  filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.45));
+}
+
+.pbi-animated-bar.sql-bar {
+  filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.45));
+}
+
+/* Live Wave Stroke & Pulse */
+#pbi-line-path {
+  filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.5));
+}
+
+#pbi-live-dot-outer {
+  animation: pbiCursorRipple 1.2s ease-out infinite;
+}
+
+@keyframes pbiCursorRipple {
+  0%   { r: 3; opacity: 0.8; }
+  100% { r: 8; opacity: 0; }
+}
+
+/* Power BI Table / Matrix */
+.pbi-table-wrap {
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+  overflow-x: auto;
+}
+
+.pbi-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.7rem;
+  text-align: left;
+}
+
+.pbi-table th {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  padding: 0.3rem 0.45rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pbi-table td {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  color: #E2E8F0;
+  padding: 0.36rem 0.45rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  vertical-align: middle;
+}
+
+.pbi-badge-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-right: 0.3rem;
+  vertical-align: middle;
+}
+
+.pbi-badge-dot.oracle { background: #EF4444; box-shadow: 0 0 5px rgba(239, 68, 68, 0.6); }
+.pbi-badge-dot.sqlserver { background: #3B82F6; box-shadow: 0 0 5px rgba(59, 130, 246, 0.6); }
+
+.pbi-engine-tag {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: #38BDF8;
+  background: rgba(6, 182, 212, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  padding: 0.08rem 0.35rem;
+  border-radius: 3px;
+}
+
+.pbi-status-pill.ok {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #34D399;
+  background: rgba(16, 185, 129, 0.14);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  padding: 0.08rem 0.45rem;
+  border-radius: 3px;
+}
+
+/* Power BI Footer */
+.pbi-footer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.25rem;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  color: #94A3B8;
+}
+
+.pbi-footer-status {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.pbi-sync-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #F2C811;
+  box-shadow: 0 0 5px #F2C811;
+  animation: pulseDot 1.6s infinite;
+}
+
+.pbi-refresh-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(242, 200, 17, 0.15);
+  border: 1px solid #F2C811;
+  color: #FDE68A;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  padding: 0.28rem 0.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pbi-refresh-btn:hover {
+  background: #F2C811;
+  color: #0F172A;
+  box-shadow: 0 0 10px rgba(242, 200, 17, 0.4);
+}
+
 .hero-visual-card {
   background: linear-gradient(180deg, rgba(15, 23, 42, 0.85) 0%, rgba(11, 17, 32, 0.95) 100%);
   border: 1px solid rgba(6, 182, 212, 0.25);
   border-radius: var(--radius-lg);
   box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.7), 0 0 25px rgba(6, 182, 212, 0.1);
-  padding: 1.1rem 1.25rem;
+  padding: 0.85rem 1.05rem 0.95rem 1.05rem;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .hero-visual-card::before {
@@ -860,8 +1345,8 @@ h4 { font-size: 1.2rem; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 0.65rem;
-  margin-bottom: 0.75rem;
+  padding-bottom: 0.45rem;
+  margin-bottom: 0.5rem;
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -882,17 +1367,17 @@ h4 { font-size: 1.2rem; }
 
 .terminal-title {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
   display: flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.4rem;
 }
 
 .pipeline-diagram-svg {
   width: 100%;
   height: auto;
-  max-height: 480px;
+  max-height: 380px;
 }
 
 /* SVG Data Stream Animation Keyframes */
@@ -914,6 +1399,21 @@ h4 { font-size: 1.2rem; }
 @keyframes pulseGlow {
   0%, 100% { filter: drop-shadow(0 0 4px rgba(6, 182, 212, 0.4)); }
   50% { filter: drop-shadow(0 0 12px rgba(34, 211, 238, 0.9)); }
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px #10B981; }
+  50% { opacity: 0.5; box-shadow: 0 0 3px #10B981; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeInLogLine {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .pipeline-telemetry-strip {
@@ -2411,8 +2911,202 @@ h4 { font-size: 1.2rem; }
   fill: none;
   stroke: var(--accent-cyan-light);
   stroke-width: 2;
+  border-radius: 50%;
+  background: var(--accent-cyan-light);
+  box-shadow: 0 0 8px var(--accent-cyan-light);
+}
+
+.tooltip-desc {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+.tooltip-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-cyan-light);
+  background: var(--accent-cyan-soft);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid rgba(34, 211, 238, 0.25);
+}
+
+/* SVG Node hover highlights */
+.pulse-node {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.pulse-node:hover {
+  transform: scale(1.03);
+}
+
+.pulse-node:hover rect {
+  stroke-width: 2.2px;
+  stroke: var(--accent-cyan-light) !important;
+}
+
+/* --------------------------------------------------------------------------
+   26. Developer API & Code Snippet Blocks
+   -------------------------------------------------------------------------- */
+.code-section-wrapper {
+  margin-top: 4rem;
+}
+
+.code-snippet-card {
+  background: #090E1A;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background: #050811;
+  border-bottom: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.code-tabs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.code-tab-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.code-tab-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.code-tab-btn.active {
+  color: var(--accent-cyan-light);
+  background: var(--accent-cyan-soft);
+  border-color: rgba(34, 211, 238, 0.3);
+}
+
+.code-copy-btn {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-default);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 0.38rem 0.85rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: all var(--transition-fast);
+}
+
+.code-copy-btn:hover {
+  border-color: var(--accent-cyan-light);
+  color: var(--text-primary);
+  background: var(--accent-cyan-soft);
+}
+
+.code-body {
+  position: relative;
+  padding: 1.25rem 1.5rem;
+  background: #070C18;
+  overflow-x: auto;
+}
+
+.code-block {
+  display: none;
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  line-height: 1.65;
+  color: #E2E8F0;
+  margin: 0;
+  white-space: pre;
+}
+
+.code-block.active {
+  display: block;
+}
+
+.code-keyword { color: #F472B6; font-weight: 600; }
+.code-string { color: #34D399; }
+.code-function { color: #60A5FA; }
+.code-comment { color: #64748B; font-style: italic; }
+.code-num { color: #F59E0B; }
+.code-var { color: #38BDF8; }
+
+/* --------------------------------------------------------------------------
+   27. Live Sparklines & Simulator Enhancements
+   -------------------------------------------------------------------------- */
+.sim-sparkline-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  flex-wrap: wrap;
+}
+
+.sparkline-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sparkline-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.sparkline-title {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.sparkline-val {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.sparkline-svg {
+  width: 90px;
+  height: 24px;
+  overflow: visible;
+}
+
+.sparkline-path {
+  fill: none;
+  stroke: var(--accent-cyan-light);
+  stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
   transition: d 0.3s ease-in-out;
 }
-

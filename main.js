@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initSpotlightEffect();
   initHeroNodeTooltips();
   initCodeCopy();
+  // 3D Flip Card + Executive BI Dashboard
+  initHeroFlipCard();
+  initBiDashboard();
 });
 
 /* --------------------------------------------------------------------------
@@ -34,7 +37,7 @@ function initPagePreloader() {
   if (!preloader || !bar) return;
 
   const steps = [
-    { pct: 28, msg: 'AUTHENTICATING ENCRYPTION VAULT...' },
+    { pct: 28, msg: 'INITIALIZING CREDENTIAL ENCRYPTION...' },
     { pct: 62, msg: 'INTROSPECTING ENTERPRISE CATALOGS...' },
     { pct: 88, msg: 'CALIBRATING IN-MEMORY STREAM BUFFER...' },
     { pct: 100, msg: '100% READY // PIPELINE ORCHESTRATOR ONLINE' }
@@ -728,4 +731,191 @@ function initCodeCopy() {
     });
   }
 }
+
+/* --------------------------------------------------------------------------
+   15. Hero 3D Flip Card Toggle
+   -------------------------------------------------------------------------- */
+function initHeroFlipCard() {
+  const container = document.getElementById('hero-flip-container');
+  if (!container) return;
+
+  const flipToDashBtn = document.getElementById('flip-to-dashboard-btn');
+  const biSvgNode = document.getElementById('bi-svg-trigger-node');
+  const flipToPipelineBtn = document.getElementById('flip-to-pipeline-btn');
+  const flipBackFooterBtn = document.getElementById('bi-flip-back-footer-btn');
+
+  function flipToDashboard() {
+    container.classList.add('flipped');
+    startPbiLiveAnimation();
+  }
+
+  function flipToPipeline() {
+    container.classList.remove('flipped');
+  }
+
+  if (flipToDashBtn) flipToDashBtn.addEventListener('click', flipToDashboard);
+  if (biSvgNode) biSvgNode.addEventListener('click', flipToDashboard);
+  if (flipToPipelineBtn) flipToPipelineBtn.addEventListener('click', flipToPipeline);
+  if (flipBackFooterBtn) flipBackFooterBtn.addEventListener('click', flipToPipeline);
+}
+
+/* --------------------------------------------------------------------------
+   16. Simple & Authentic Power BI Analytics Report (Live & Moving Charts)
+   -------------------------------------------------------------------------- */
+
+let pbiAnimFrameId = null;
+let pbiStartTime = null;
+
+function startPbiLiveAnimation() {
+  if (pbiAnimFrameId) return; // already running
+
+  const areaPath = document.getElementById('pbi-area-path');
+  const linePath = document.getElementById('pbi-line-path');
+  const dot1 = document.getElementById('pbi-dot-1');
+  const dot2 = document.getElementById('pbi-dot-2');
+  const val1 = document.getElementById('pbi-val-1');
+  const val2 = document.getElementById('pbi-val-2');
+  const liveDot = document.getElementById('pbi-live-dot');
+  const liveDotOuter = document.getElementById('pbi-live-dot-outer');
+  const liveVal = document.getElementById('pbi-live-val');
+
+  const barOracle = document.getElementById('pbi-bar-oracle');
+  const barSql = document.getElementById('pbi-bar-sql');
+  const valOracle = document.getElementById('pbi-val-oracle');
+  const valSql = document.getElementById('pbi-val-sql');
+  const tblOracle = document.getElementById('tbl-oracle-vol');
+  const tblSql = document.getElementById('tbl-sql-vol');
+
+  const kpiThroughput = document.getElementById('kpi-throughput-val');
+  const kpiLatency = document.getElementById('kpi-latency-val');
+
+  pbiStartTime = performance.now();
+
+  function renderPbiFrame(now) {
+    const elapsed = (now - pbiStartTime) / 1000;
+
+    // 1. Dynamic Moving Wave Calculations
+    const y0 = 58 + Math.sin(elapsed * 1.6) * 3;
+    const y1 = 34 + Math.sin(elapsed * 2.1 + 1.2) * 4.5;
+    const y2 = 25 + Math.cos(elapsed * 1.8 + 2.4) * 4;
+    const y3 = 14 + Math.sin(elapsed * 2.4 + 0.6) * 3.5;
+
+    const lineD = `M 38,${y0.toFixed(1)} C 70,${(y0 - 6).toFixed(1)} 100,${(y1 + 12).toFixed(1)} 135,${y1.toFixed(1)} C 165,${(y1 - 14).toFixed(1)} 195,${(y2 + 14).toFixed(1)} 225,${y2.toFixed(1)} C 255,${(y2 - 12).toFixed(1)} 270,${(y3 + 7).toFixed(1)} 285,${y3.toFixed(1)}`;
+    const areaD = `${lineD} L 285,70 L 38,70 Z`;
+
+    if (linePath) linePath.setAttribute('d', lineD);
+    if (areaPath) areaPath.setAttribute('d', areaD);
+
+    // Update Dots on Wave
+    if (dot1) dot1.setAttribute('cy', y1.toFixed(1));
+    if (val1) {
+      val1.setAttribute('y', (y1 - 6).toFixed(1));
+      val1.textContent = (48.0 + Math.sin(elapsed * 2.1) * 0.7).toFixed(1) + 'K';
+    }
+
+    if (dot2) dot2.setAttribute('cy', y2.toFixed(1));
+    if (val2) {
+      val2.setAttribute('y', (y2 - 6).toFixed(1));
+      val2.textContent = (58.0 + Math.cos(elapsed * 1.8) * 0.9).toFixed(1) + 'K';
+    }
+
+    if (liveDot) liveDot.setAttribute('cy', y3.toFixed(1));
+    if (liveDotOuter) liveDotOuter.setAttribute('cy', y3.toFixed(1));
+    if (liveVal) {
+      liveVal.setAttribute('y', (y3 - 6).toFixed(1));
+      const curLive = (52.2 + Math.sin(elapsed * 2.4) * 0.8).toFixed(1);
+      liveVal.textContent = curLive + 'K';
+    }
+
+    // 2. Dynamic Moving Column Bars (Target Warehouse)
+    const oracleH = 51 + Math.sin(elapsed * 0.9) * 2.5;
+    const oracleY = 70 - oracleH;
+    if (barOracle) {
+      barOracle.setAttribute('height', oracleH.toFixed(1));
+      barOracle.setAttribute('y', oracleY.toFixed(1));
+    }
+    if (valOracle) {
+      valOracle.setAttribute('y', (oracleY - 6).toFixed(1));
+      const curOracleGB = Math.round(820 + Math.sin(elapsed * 0.9) * 3);
+      valOracle.textContent = curOracleGB + ' GB';
+      if (tblOracle) tblOracle.textContent = curOracleGB + ' GB';
+    }
+
+    const sqlH = 41 + Math.cos(elapsed * 0.8) * 2;
+    const sqlY = 70 - sqlH;
+    if (barSql) {
+      barSql.setAttribute('height', sqlH.toFixed(1));
+      barSql.setAttribute('y', sqlY.toFixed(1));
+    }
+    if (valSql) {
+      valSql.setAttribute('y', (sqlY - 6).toFixed(1));
+      const curSqlGB = Math.round(660 + Math.cos(elapsed * 0.8) * 2.5);
+      valSql.textContent = curSqlGB + ' GB';
+      if (tblSql) tblSql.textContent = curSqlGB + ' GB';
+    }
+
+    // 3. Real-time KPI Tickers
+    if (kpiThroughput) {
+      kpiThroughput.innerHTML = 'Multi-Stream';
+    }
+
+    if (kpiLatency) {
+      kpiLatency.textContent = 'Real-Time';
+    }
+
+    pbiAnimFrameId = requestAnimationFrame(renderPbiFrame);
+  }
+
+  pbiAnimFrameId = requestAnimationFrame(renderPbiFrame);
+}
+
+function initBiDashboard() {
+  // Start the chart animation
+  startPbiLiveAnimation();
+
+  const xmlaBtn = document.getElementById('trigger-xmla-btn');
+  if (xmlaBtn) {
+    xmlaBtn.addEventListener('click', () => {
+      const originalHtml = xmlaBtn.innerHTML;
+
+      xmlaBtn.innerHTML = `
+        <svg style="animation: spin 0.8s linear infinite" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+        </svg>
+        <span>Refreshing...</span>
+      `;
+      xmlaBtn.disabled = true;
+      xmlaBtn.style.opacity = '0.75';
+
+      setTimeout(() => {
+        xmlaBtn.innerHTML = `
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>✓ Synchronized!</span>
+        `;
+        xmlaBtn.style.background = '#10B981';
+        xmlaBtn.style.borderColor = '#10B981';
+        xmlaBtn.style.color = '#0F172A';
+        xmlaBtn.style.opacity = '1';
+
+        if (typeof showToast === 'function') {
+          showToast('Power BI Direct Lake datasets refreshed successfully!', 'success');
+        }
+
+        setTimeout(() => {
+          xmlaBtn.innerHTML = originalHtml;
+          xmlaBtn.disabled = false;
+          xmlaBtn.style.background = '';
+          xmlaBtn.style.borderColor = '';
+          xmlaBtn.style.color = '';
+          xmlaBtn.style.opacity = '1';
+        }, 2200);
+      }, 1200);
+    });
+  }
+}
+
+
+
 
