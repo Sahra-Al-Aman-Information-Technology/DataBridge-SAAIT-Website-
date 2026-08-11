@@ -50,6 +50,11 @@
 </head>
 <body>
 
+  <!-- Top Scroll Progress Bar -->
+  <div class="scroll-progress-bar" id="scroll-progress"></div>
+
+  <!-- Background Ambient Particle Canvas -->
+  <canvas id="ambient-canvas"></canvas>
 
   <!-- Sticky Navbar -->
   <header class="navbar">
@@ -280,7 +285,7 @@
 
                 <!-- SOURCE NODES (Left Tier - 6 Items) -->
                 <!-- Node 1: Oracle Fusion -->
-                <g class="pulse-node">
+                <g class="pulse-node" data-tooltip-title="Oracle Fusion ERP Cloud" data-tooltip-desc="High-throughput BIP / REST extract with automated pagination, token refresh, and delta change capture." data-tooltip-stat="EXTRACT SLA < 2.4s // 1.2M rows/min">
                   <rect x="20" y="12" width="125" height="48" rx="8" fill="url(#nodeBg)" stroke="#06B6D4" stroke-width="1.5" />
                   <circle cx="35" cy="36" r="4.5" fill="#F97316" filter="url(#glowNode)" />
                   <text x="48" y="32" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="11.5" font-weight="700">Oracle Fusion</text>
@@ -288,7 +293,7 @@
                 </g>
 
                 <!-- Node 2: Salesforce -->
-                <g class="pulse-node">
+                <g class="pulse-node" data-tooltip-title="Salesforce CRM API" data-tooltip-desc="Bulk API 2.0 streaming ingestion with automatic object schema mapping and OAuth 2.0 PKCE flow." data-tooltip-stat="STREAMING LATENCY < 450ms">
                   <rect x="20" y="74" width="125" height="48" rx="8" fill="url(#nodeBg)" stroke="#06B6D4" stroke-width="1.5" />
                   <circle cx="35" cy="98" r="4.5" fill="#0EA5E9" filter="url(#glowNode)" />
                   <text x="48" y="94" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="11.5" font-weight="700">Salesforce</text>
@@ -296,7 +301,7 @@
                 </g>
 
                 <!-- Node 3: Oracle DB -->
-                <g class="pulse-node">
+                <g class="pulse-node" data-tooltip-title="Oracle Enterprise Database" data-tooltip-desc="LogMiner CDC log parsing and high-speed OCI Native Driver direct buffer reads." data-tooltip-stat="ZERO LOCK INGESTION // CDC ACTIVE">
                   <rect x="20" y="136" width="125" height="48" rx="8" fill="url(#nodeBg)" stroke="#06B6D4" stroke-width="1.5" />
                   <circle cx="35" cy="160" r="4.5" fill="#EF4444" filter="url(#glowNode)" />
                   <text x="48" y="156" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="11.5" font-weight="700">Oracle DB</text>
@@ -304,7 +309,7 @@
                 </g>
 
                 <!-- Node 4: SQL DB -->
-                <g class="pulse-node">
+                <g class="pulse-node" data-tooltip-title="Microsoft SQL Server" data-tooltip-desc="SqlBulkCopy and Change Tracking (CT) engine with automatic rowversion state tracking." data-tooltip-stat="BULK INSERT 50K ROWS/SEC">
                   <rect x="20" y="198" width="125" height="48" rx="8" fill="url(#nodeBg)" stroke="#06B6D4" stroke-width="1.5" />
                   <circle cx="35" cy="222" r="4.5" fill="#3B82F6" filter="url(#glowNode)" />
                   <text x="48" y="218" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="11.5" font-weight="700">SQL DB</text>
@@ -312,7 +317,7 @@
                 </g>
 
                 <!-- Node 5: SharePoint -->
-                <g class="pulse-node">
+                <g class="pulse-node" data-tooltip-title="Microsoft SharePoint Lists" data-tooltip-desc="Graph API delta queries for SharePoint lists and file metadata synchronization." data-tooltip-stat="AUTO-RECONCILIATION ENABLED">
                   <rect x="20" y="260" width="125" height="48" rx="8" fill="url(#nodeBg)" stroke="#06B6D4" stroke-width="1.5" />
                   <circle cx="35" cy="284" r="4.5" fill="#10B981" filter="url(#glowNode)" />
                   <text x="48" y="280" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="11.5" font-weight="700">SharePoint</text>
@@ -320,7 +325,7 @@
                 </g>
 
                 <!-- Node 6: Excel -->
-                <g class="pulse-node">
+                <g class="pulse-node" data-tooltip-title="Excel & CSV Streaming" data-tooltip-desc="In-memory OpenXML streaming parser with header validation and data type inferencing." data-tooltip-stat="ZERO SHEETS LIMITATION">
                   <rect x="20" y="322" width="125" height="48" rx="8" fill="url(#nodeBg)" stroke="#06B6D4" stroke-width="1.5" />
                   <circle cx="35" cy="346" r="4.5" fill="#22C55E" filter="url(#glowNode)" />
                   <text x="48" y="342" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="11.5" font-weight="700">Excel</text>
@@ -328,7 +333,7 @@
                 </g>
 
                 <!-- CENTER NODE: DATABRIDGE CORE -->
-                <g filter="url(#glowCyan)">
+                <g filter="url(#glowCyan)" class="pulse-node" data-tooltip-title="DataBridge Core Ingestion Engine" data-tooltip-desc="Multi-threaded pipeline orchestrator with automatic DDL column drift alignment and Power BI dataset XMLA refresh." data-tooltip-stat="CLUSTER SLA 99.999% // AES-256 VAULT">
                   <rect x="265" y="110" width="190" height="160" rx="12" fill="url(#coreBg)" stroke="#22D3EE" stroke-width="2" />
                   <rect x="271" y="118" width="178" height="28" rx="6" fill="rgba(6, 182, 212, 0.18)" stroke="rgba(34, 211, 238, 0.4)" stroke-width="1" />
                   <text x="360" y="136" fill="#22D3EE" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="11.5" font-weight="800" letter-spacing="0.5">DATABRIDGE CORE</text>
@@ -342,7 +347,7 @@
 
                 <!-- DESTINATION NODES (Right Tier - 2 Items) -->
                 <!-- Node 1: Oracle -->
-                <g class="pulse-node">
+                <g class="pulse-node" data-tooltip-title="Oracle Target Data Warehouse" data-tooltip-desc="Automated MERGE INTO upserts and DDL ALTER TABLE aligner for Oracle cloud data warehouses." data-tooltip-stat="ZERO TYPE MISMATCH GUARANTEE">
                   <rect x="575" y="110" width="125" height="52" rx="8" fill="url(#nodeBg)" stroke="#EF4444" stroke-width="1.8" />
                   <circle cx="589" cy="136" r="5" fill="#EF4444" filter="url(#glowNode)" />
                   <text x="601" y="131" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="12" font-weight="700">Oracle</text>
@@ -350,7 +355,7 @@
                 </g>
 
                 <!-- Node 2: SQL DB -->
-                <g class="pulse-node">
+                <g class="pulse-node" data-tooltip-title="SQL Server Target Warehouse" data-tooltip-desc="Fast load staging and Power BI semantic dataset XMLA endpoint trigger upon load completion." data-tooltip-stat="POWER BI AUTO-REFRESH SINK">
                   <rect x="575" y="220" width="125" height="52" rx="8" fill="url(#nodeBg)" stroke="#3B82F6" stroke-width="1.8" />
                   <circle cx="589" cy="246" r="5" fill="#3B82F6" filter="url(#glowNode)" />
                   <text x="601" y="241" fill="#F8FAFC" font-family="'Space Grotesk', sans-serif" font-size="12" font-weight="700">SQL DB</text>
@@ -372,7 +377,6 @@
     <section class="section-wrapper" id="problem">
       <div class="container">
         <div class="section-header" data-reveal="fade-up">
-          <span class="section-badge indigo">THE PIPELINE BOTTLENECK</span>
           <h2>The Legacy Scripting Trap vs. <span class="text-gradient-cyan">DataBridge Control</span></h2>
           <p class="section-description">
             Traditional ad-hoc ETL scripts break silently and corrupt data. DataBridge automates pipeline execution with zero downtime and total control.
@@ -473,7 +477,6 @@
     <section class="section-wrapper" id="capabilities">
       <div class="container">
         <div class="section-header" data-reveal="fade-up">
-          <span class="section-badge">ENGINEERING-GRADE INFRASTRUCTURE</span>
           <h2>Architected for Zero-Downtime <span class="text-gradient-cyan">Data Mobility</span></h2>
           <p class="section-description">
             Built from the ground up for high-throughput enterprise environments with deep Oracle, SQL Server, and cloud warehouse synergies.
@@ -483,7 +486,7 @@
         <div class="capabilities-grid">
           
           <!-- Capability 1: Multi-Source Connection & Schema Autodiscovery -->
-          <div class="capability-card featured-span" data-reveal="fade-up">
+          <div class="capability-card featured-span" data-spotlight data-reveal="fade-up">
             <div class="capability-icon-box">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
@@ -588,6 +591,71 @@
           </div>
 
         </div>
+
+        <!-- Developer CLI & API Sync Code Snippets Card -->
+        <div class="code-section-wrapper" data-reveal="fade-up">
+          <div class="code-snippet-card" data-spotlight>
+            <div class="code-header">
+              <div class="code-tabs">
+                <button class="code-tab-btn active" data-tab="curl">cURL Pipeline Trigger</button>
+                <button class="code-tab-btn" data-tab="python">Python SDK</button>
+                <button class="code-tab-btn" data-tab="sql">Auto-DDL DML Sync</button>
+              </div>
+              <button class="code-copy-btn" id="copy-code-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Copy Snippet</span>
+              </button>
+            </div>
+            <div class="code-body">
+              <!-- cURL tab -->
+              <pre class="code-block active" id="code-curl"><code><span class="code-comment"># Trigger Real-Time Oracle Fusion to SQL Data Warehouse Pipeline</span>
+curl -X POST https://api.databridge.io/v1/pipelines/oracle_fusion_sync \
+  -H <span class="code-string">"Authorization: Bearer db_live_vault_9921x"</span> \
+  -H <span class="code-string">"Content-Type: application/json"</span> \
+  -d '{
+    <span class="code-string">"source"</span>: <span class="code-string">"Oracle_Fusion_ERP"</span>,
+    <span class="code-string">"target"</span>: <span class="code-string">"Azure_SQL_DW"</span>,
+    <span class="code-string">"load_type"</span>: <span class="code-string">"DELTA_MERGE"</span>,
+    <span class="code-string">"auto_ddl_align"</span>: <span class="code-keyword">true</span>,
+    <span class="code-string">"power_bi_refresh"</span>: <span class="code-keyword">true</span>
+  }'</code></pre>
+
+              <!-- Python SDK tab -->
+              <pre class="code-block" id="code-python"><code><span class="code-keyword">from</span> databridge <span class="code-keyword">import</span> OrchestratorEngine
+
+<span class="code-comment"># Initialize Vault Authenticated DataBridge Engine</span>
+engine = OrchestratorEngine(vault_key=<span class="code-string">"env.DATABRIDGE_VAULT_KEY"</span>)
+
+<span class="code-comment"># Configure Delta Sync between Oracle DB and SQL Server Target</span>
+sync_job = engine.create_pipeline(
+    source_type=<span class="code-string">"ORACLE_FUSION"</span>,
+    target_type=<span class="code-string">"SQL_SERVER"</span>,
+    strategy=<span class="code-string">"MERGE_UPSERT"</span>,
+    tables=[<span class="code-string">"GL_BALANCES"</span>, <span class="code-string">"RA_CUSTOMER_TRX_ALL"</span>]
+)
+
+result = sync_job.execute(auto_align_ddl=<span class="code-keyword">True</span>)
+<span class="code-function">print</span>(<span class="code-string">f"Sync Completed: {result.rows_inserted} rows inserted, SLA: {result.latency_ms}ms"</span>)</code></pre>
+
+              <!-- SQL tab -->
+              <pre class="code-block" id="code-sql"><code><span class="code-comment">-- Automatic Dynamic DDL Alignment Engine Output</span>
+<span class="code-keyword">ALTER TABLE</span> dw.fact_oracle_gl_balances 
+<span class="code-keyword">ADD COLUMN</span> new_tax_compliance_code <span class="code-var">VARCHAR(64)</span> <span class="code-keyword">NULL</span>;
+
+<span class="code-keyword">MERGE INTO</span> dw.fact_oracle_gl_balances <span class="code-keyword">AS</span> target
+<span class="code-keyword">USING</span> stg.oracle_gl_delta <span class="code-keyword">AS</span> src
+<span class="code-keyword">ON</span> target.period_id = src.period_id <span class="code-keyword">AND</span> target.account_id = src.account_id
+<span class="code-keyword">WHEN MATCHED THEN UPDATE SET</span> 
+    target.balance_amount = src.balance_amount,
+    target.last_update_date = <span class="code-function">GETDATE()</span>
+<span class="code-keyword">WHEN NOT MATCHED THEN INSERT</span> (period_id, account_id, balance_amount)
+<span class="code-keyword">VALUES</span> (src.period_id, src.account_id, src.balance_amount);</code></pre>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -597,7 +665,6 @@
     <section class="section-wrapper" id="architecture">
       <div class="container">
         <div class="section-header" data-reveal="fade-up">
-          <span class="section-badge emerald">TECHNICAL BLUEPRINT</span>
           <h2>Enterprise-Grade <span class="text-gradient-cyan">Pipeline Architecture</span></h2>
           <p class="section-description">
             A battle-tested distributed orchestrator bridging transactional enterprise databases, high-performance streaming engines, and downstream business intelligence.
@@ -762,7 +829,6 @@
     <section class="section-wrapper" id="simulator">
       <div class="container">
         <div class="section-header" data-reveal="fade-up">
-          <span class="section-badge">INTERACTIVE TESTBENCH</span>
           <h2>Simulate a Live <span class="text-gradient-cyan">Pipeline Execution</span></h2>
           <p class="section-description">
             Experience how DataBridge executes schema introspection, delta streaming, DDL auto-alignment, and Power BI refreshes in real-time.
@@ -838,7 +904,6 @@
     <section class="section-wrapper" id="how-it-works">
       <div class="container">
         <div class="section-header" data-reveal="fade-up">
-          <span class="section-badge indigo">STEP-BY-STEP WORKFLOW</span>
           <h2>From Source Connect to Power BI in <span class="text-gradient-cyan">6 Automated Steps</span></h2>
           <p class="section-description">
             Zero complex YAML, zero brittle Python scripts, zero maintenance overhead.
@@ -908,7 +973,6 @@
       <div class="container">
         <div class="security-vault-box" data-reveal="zoom-in">
           <div class="section-header" style="margin-bottom: 2rem;">
-            <span class="section-badge emerald">CRYPTOGRAPHIC TRUST</span>
             <h2>Zero-Trust Security & <span class="text-gradient-cyan">Credential Vault</span></h2>
             <p class="section-description">
               DataBridge never writes your credentials to code repositories, logs, or plain text configuration files.
@@ -966,7 +1030,6 @@
     <section class="section-wrapper" id="testimonials">
       <div class="container">
         <div class="section-header" data-reveal="fade-up">
-          <span class="section-badge indigo">VALIDATED BY DATA LEADERS</span>
           <h2>Trusted by <span class="text-gradient-cyan">Enterprise Data Teams</span></h2>
           <p class="section-description">
             See how enterprise data engineers and IT architects modernize data movement with DataBridge.
@@ -1042,7 +1105,6 @@
     <section class="section-wrapper" id="faq">
       <div class="container">
         <div class="section-header" data-reveal="fade-up">
-          <span class="section-badge">FREQUENTLY ASKED QUESTIONS</span>
           <h2>Enterprise Data & IT <span class="text-gradient-cyan">Architecture FAQs</span></h2>
         </div>
 
@@ -1271,6 +1333,16 @@
       </div>
     </div>
   </footer>
+
+  <!-- Floating SVG Node Interactive Tooltip Card -->
+  <div class="svg-node-tooltip" id="svg-tooltip">
+    <div class="tooltip-header">
+      <span class="tooltip-dot"></span>
+      <span id="tooltip-title">Node Title</span>
+    </div>
+    <div class="tooltip-desc" id="tooltip-desc">Description text</div>
+    <div class="tooltip-badge" id="tooltip-stat">METRIC STAT</div>
+  </div>
 
   <!-- Back to Top Button -->
   <button class="back-to-top" aria-label="Back to Top">

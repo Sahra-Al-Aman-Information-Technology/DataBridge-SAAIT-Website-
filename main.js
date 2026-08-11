@@ -15,6 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initDemoForm();
   initBackToTop();
   initSmoothScroll();
+  // Impeccable UI Upgrades
+  initScrollProgress();
+  initAmbientCanvas();
+  initSpotlightEffect();
+  initHeroNodeTooltips();
+  initCodeCopy();
 });
 
 /* --------------------------------------------------------------------------
@@ -502,3 +508,224 @@ function initSmoothScroll() {
     });
   });
 }
+
+/* --------------------------------------------------------------------------
+   9. Scroll Progress Indicator
+   -------------------------------------------------------------------------- */
+function initScrollProgress() {
+  const progressBar = document.getElementById('scroll-progress');
+  if (!progressBar) return;
+  window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    progressBar.style.width = `${scrolled}%`;
+  });
+}
+
+/* --------------------------------------------------------------------------
+   10. Background Ambient Canvas Particle Network
+   -------------------------------------------------------------------------- */
+function initAmbientCanvas() {
+  const canvas = document.getElementById('ambient-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  let width = (canvas.width = window.innerWidth);
+  let height = (canvas.height = window.innerHeight);
+
+  window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  });
+
+  const particleCount = Math.min(Math.floor(width / 25), 45);
+  const particles = [];
+
+  for (let i = 0; i < particleCount; i++) {
+    particles.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+      radius: Math.random() * 1.5 + 1
+    });
+  }
+
+  let mouseX = width / 2;
+  let mouseY = height / 2;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function render() {
+    ctx.clearRect(0, 0, width, height);
+
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+
+      if (p.x < 0 || p.x > width) p.vx *= -1;
+      if (p.y < 0 || p.y > height) p.vy *= -1;
+
+      // Draw particle
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(34, 211, 238, 0.45)';
+      ctx.fill();
+
+      // Connect near particles
+      for (let j = i + 1; j < particles.length; j++) {
+        const p2 = particles[j];
+        const dx = p.x - p2.x;
+        const dy = p.y - p2.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < 140) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = `rgba(6, 182, 212, ${0.2 * (1 - dist / 140)})`;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      }
+
+      // Connect to mouse if near
+      const mdx = p.x - mouseX;
+      const mdy = p.y - mouseY;
+      const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+      if (mdist < 180) {
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(mouseX, mouseY);
+        ctx.strokeStyle = `rgba(34, 211, 238, ${0.25 * (1 - mdist / 180)})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+    }
+
+    requestAnimationFrame(render);
+  }
+
+  render();
+}
+
+/* --------------------------------------------------------------------------
+   12. Card Mouse Spotlight Tracking
+   -------------------------------------------------------------------------- */
+function initSpotlightEffect() {
+  const cards = document.querySelectorAll('[data-spotlight]');
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+}
+
+/* --------------------------------------------------------------------------
+   13. Hero SVG Interactive Node Tooltips
+   -------------------------------------------------------------------------- */
+function initHeroNodeTooltips() {
+  const tooltip = document.getElementById('svg-tooltip');
+  const titleEl = document.getElementById('tooltip-title');
+  const descEl = document.getElementById('tooltip-desc');
+  const statEl = document.getElementById('tooltip-stat');
+  const nodes = document.querySelectorAll('.pulse-node[data-tooltip-title]');
+
+  if (!tooltip || !nodes.length) return;
+
+  nodes.forEach(node => {
+    node.addEventListener('mouseenter', () => {
+      const title = node.getAttribute('data-tooltip-title');
+      const desc = node.getAttribute('data-tooltip-desc');
+      const stat = node.getAttribute('data-tooltip-stat');
+
+      if (titleEl) titleEl.textContent = title;
+      if (descEl) descEl.textContent = desc;
+      if (statEl) statEl.textContent = stat;
+
+      tooltip.classList.add('active');
+    });
+
+    node.addEventListener('mousemove', (e) => {
+      const x = e.clientX + 16;
+      const y = e.clientY + 16;
+
+      const tooltipWidth = tooltip.offsetWidth || 280;
+      const tooltipHeight = tooltip.offsetHeight || 100;
+      const maxX = window.innerWidth - tooltipWidth - 20;
+      const maxY = window.innerHeight - tooltipHeight - 20;
+
+      tooltip.style.left = `${Math.min(x, maxX)}px`;
+      tooltip.style.top = `${Math.min(y, maxY)}px`;
+    });
+
+    node.addEventListener('mouseleave', () => {
+      tooltip.classList.remove('active');
+    });
+  });
+}
+
+/* --------------------------------------------------------------------------
+   14. Code Snippet Tab Switching & Copy Utility
+   -------------------------------------------------------------------------- */
+function initCodeCopy() {
+  const tabs = document.querySelectorAll('.code-tab-btn');
+  const blocks = document.querySelectorAll('.code-block');
+  const copyBtn = document.getElementById('copy-code-btn');
+
+  if (tabs.length && blocks.length) {
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetTab = tab.getAttribute('data-tab');
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        blocks.forEach(b => {
+          if (b.id === `code-${targetTab}`) {
+            b.classList.add('active');
+          } else {
+            b.classList.remove('active');
+          }
+        });
+      });
+    });
+  }
+
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+      const activeBlock = document.querySelector('.code-block.active');
+      if (!activeBlock) return;
+
+      const codeText = activeBlock.textContent || activeBlock.innerText;
+      navigator.clipboard.writeText(codeText).then(() => {
+        const originalHtml = copyBtn.innerHTML;
+        copyBtn.innerHTML = `
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span style="color: #34D399;">Copied!</span>
+        `;
+        if (typeof showToast === 'function') {
+          showToast('Code snippet copied to clipboard!', 'success');
+        }
+        setTimeout(() => {
+          copyBtn.innerHTML = originalHtml;
+        }, 2200);
+      }).catch(() => {
+        if (typeof showToast === 'function') {
+          showToast('Failed to copy code', 'error');
+        }
+      });
+    });
+  }
+}
+

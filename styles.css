@@ -33,6 +33,12 @@
   --accent-amber: #F59E0B;
   --accent-rose: #F43F5E;
 
+  /* Dynamic Active Accent Tokens */
+  --accent-primary: #06B6D4;
+  --accent-primary-light: #22D3EE;
+  --accent-primary-glow: rgba(6, 182, 212, 0.25);
+  --accent-primary-soft: rgba(34, 211, 238, 0.1);
+
   /* Text Colors */
   --text-primary: #F8FAFC;
   --text-secondary: #CBD5E1;
@@ -2106,3 +2112,307 @@ h4 { font-size: 1.2rem; }
   color: #04101A;
   transform: translateY(-3px);
 }
+
+/* --------------------------------------------------------------------------
+   21. Scroll Progress Bar
+   -------------------------------------------------------------------------- */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-cyan), #3B82F6, #10B981);
+  z-index: 100000;
+  transition: width 0.1s ease-out;
+  box-shadow: 0 0 10px var(--accent-cyan-light);
+}
+
+/* --------------------------------------------------------------------------
+   22. Background Ambient Canvas Matrix
+   -------------------------------------------------------------------------- */
+#ambient-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.45;
+}
+
+/* --------------------------------------------------------------------------
+   23. Card Mouse Spotlight Glow Effect
+   -------------------------------------------------------------------------- */
+[data-spotlight] {
+  position: relative;
+  overflow: hidden;
+}
+
+[data-spotlight]::before {
+  content: "";
+  position: absolute;
+  top: var(--mouse-y, -200px);
+  left: var(--mouse-x, -200px);
+  width: 340px;
+  height: 340px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, var(--accent-cyan-glow) 0%, rgba(6, 182, 212, 0.04) 50%, transparent 75%);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 1;
+}
+
+[data-spotlight]:hover::before {
+  opacity: 1;
+}
+
+/* Ensure contents stay above spotlight */
+[data-spotlight] > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* --------------------------------------------------------------------------
+   24. SVG Floating Node Interactive Tooltips
+   -------------------------------------------------------------------------- */
+.svg-node-tooltip {
+  position: fixed;
+  z-index: 9999;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--accent-cyan-light);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px var(--accent-cyan-glow);
+  padding: 0.85rem 1.15rem;
+  border-radius: var(--radius-md);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px) scale(0.96);
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s ease;
+  max-width: 290px;
+}
+
+.svg-node-tooltip.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.tooltip-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.tooltip-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-cyan-light);
+  box-shadow: 0 0 8px var(--accent-cyan-light);
+}
+
+.tooltip-desc {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+.tooltip-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-cyan-light);
+  background: var(--accent-cyan-soft);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid rgba(34, 211, 238, 0.25);
+}
+
+/* SVG Node hover highlights */
+.pulse-node {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.pulse-node:hover {
+  transform: scale(1.03);
+}
+
+.pulse-node:hover rect {
+  stroke-width: 2.2px;
+  stroke: var(--accent-cyan-light) !important;
+}
+
+/* --------------------------------------------------------------------------
+   26. Developer API & Code Snippet Blocks
+   -------------------------------------------------------------------------- */
+.code-section-wrapper {
+  margin-top: 4rem;
+}
+
+.code-snippet-card {
+  background: #090E1A;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background: #050811;
+  border-bottom: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.code-tabs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.code-tab-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.code-tab-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.code-tab-btn.active {
+  color: var(--accent-cyan-light);
+  background: var(--accent-cyan-soft);
+  border-color: rgba(34, 211, 238, 0.3);
+}
+
+.code-copy-btn {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-default);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 0.38rem 0.85rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: all var(--transition-fast);
+}
+
+.code-copy-btn:hover {
+  border-color: var(--accent-cyan-light);
+  color: var(--text-primary);
+  background: var(--accent-cyan-soft);
+}
+
+.code-body {
+  position: relative;
+  padding: 1.25rem 1.5rem;
+  background: #070C18;
+  overflow-x: auto;
+}
+
+.code-block {
+  display: none;
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  line-height: 1.65;
+  color: #E2E8F0;
+  margin: 0;
+  white-space: pre;
+}
+
+.code-block.active {
+  display: block;
+}
+
+.code-keyword { color: #F472B6; font-weight: 600; }
+.code-string { color: #34D399; }
+.code-function { color: #60A5FA; }
+.code-comment { color: #64748B; font-style: italic; }
+.code-num { color: #F59E0B; }
+.code-var { color: #38BDF8; }
+
+/* --------------------------------------------------------------------------
+   27. Live Sparklines & Simulator Enhancements
+   -------------------------------------------------------------------------- */
+.sim-sparkline-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  flex-wrap: wrap;
+}
+
+.sparkline-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sparkline-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.sparkline-title {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.sparkline-val {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.sparkline-svg {
+  width: 90px;
+  height: 24px;
+  overflow: visible;
+}
+
+.sparkline-path {
+  fill: none;
+  stroke: var(--accent-cyan-light);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: d 0.3s ease-in-out;
+}
+
