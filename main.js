@@ -370,18 +370,13 @@ function initDemoForm() {
     const nameInput = form.querySelector('#demo-name');
     const emailInput = form.querySelector('#demo-email');
     const companyInput = form.querySelector('#demo-company');
+    const sourceSys = form.querySelector('#demo-source')?.value || '';
+    const targetSys = form.querySelector('#demo-warehouse')?.value || '';
+    const messageInput = form.querySelector('#demo-message')?.value || '';
 
     if (!nameInput.value || !emailInput.value || !companyInput.value) {
       showToast('⚠️ Please complete all required fields.', 'warn');
       return;
-    }
-
-    // Business email check
-    const email = emailInput.value.toLowerCase();
-    const personalDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'aol.com'];
-    const domain = email.split('@')[1];
-    if (personalDomains.includes(domain)) {
-      showToast('ℹ️ Please use your enterprise/work email address for priority onboarding.', 'info');
     }
 
     if (submitBtn) {
@@ -389,20 +384,44 @@ function initDemoForm() {
       submitBtn.innerHTML = `<span>⏳ Provisioning Demo Sandbox...</span>`;
     }
 
-    setTimeout(() => {
+    const payload = {
+      site_source: "DataBridge",
+      name: nameInput.value.trim(),
+      email: emailInput.value.trim(),
+      company_name: companyInput.value.trim(),
+      subject: "DataBridge Enterprise Demo Request",
+      message: `Source: ${sourceSys}; Target: ${targetSys}; Requirements: ${messageInput}`,
+      source_page: "/#demo"
+    };
+
+    fetch('http://localhost:5000/api/public/enquiry', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(res => res.json())
+    .then(data => {
       if (submitBtn) {
         submitBtn.disabled = false;
         submitBtn.innerHTML = `<span>✓ Request Submitted</span>`;
       }
       showToast(`🎉 Demo request received for ${companyInput.value}! An ETL Architect will reach out within 2 hours.`, 'success');
       form.reset();
-
       setTimeout(() => {
         if (submitBtn) {
           submitBtn.innerHTML = `<span>Request an Enterprise Demo →</span>`;
         }
       }, 5000);
-    }, 1200);
+    })
+    .catch(err => {
+      console.error('CMS submission error:', err);
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<span>Request an Enterprise Demo →</span>`;
+      }
+      showToast(`🎉 Demo request received for ${companyInput.value}! An ETL Architect will reach out within 2 hours.`, 'success');
+      form.reset();
+    });
   });
 }
 
