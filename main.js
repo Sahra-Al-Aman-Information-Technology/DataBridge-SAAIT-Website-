@@ -373,6 +373,14 @@ function initDemoForm() {
   const form = document.getElementById('enterprise-demo-form');
   if (!form) return;
 
+  // Dynamic API endpoint: Uses localhost during local development, and live server IP/domain when deployed
+  const isLocal = typeof window !== 'undefined' && 
+    (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+  
+  const CMS_ENQUIRY_URL = isLocal
+    ? 'http://localhost:5000/api/public/enquiry'
+    : 'http://58.84.14.54:5000/api/public/enquiry'; // Live SAAIT Backend API
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const submitBtn = form.querySelector('button[type="submit"]');
@@ -403,12 +411,18 @@ function initDemoForm() {
       source_page: "/#demo"
     };
 
-    fetch('http://localhost:5000/api/public/enquiry', {
+    fetch(CMS_ENQUIRY_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(payload)
     })
-    .then(res => res.json())
+    .then(async (res) => {
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        throw new Error(errorData.error || `Server responded with status ${res.status}`);
+      }
+      return res.json();
+    })
     .then(data => {
       if (submitBtn) {
         submitBtn.disabled = false;
@@ -428,11 +442,11 @@ function initDemoForm() {
         submitBtn.disabled = false;
         submitBtn.innerHTML = `<span>Request an Enterprise Demo →</span>`;
       }
-      showToast(`🎉 Demo request received for ${companyInput.value}! An ETL Architect will reach out within 2 hours.`, 'success');
-      form.reset();
+      showToast('❌ Submission failed. Please try again or contact support directly.', 'error');
     });
   });
 }
+
 
 function showToast(message, type = 'success') {
   let container = document.querySelector('.toast-container');
