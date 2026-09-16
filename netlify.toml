@@ -1,0 +1,19 @@
+# The site is a static single-page site whose files live in the Databridge/
+# subdirectory. Without this, Netlify publishes the repository root, which
+# contains no index.html and therefore returns 404 for every path.
+[build]
+  publish = "Databridge"
+
+# The page is marketed at the /databridge path (see og:url), so send that
+# path and anything under it to the site root instead of a 404.
+[[redirects]]
+  from = "/databridge"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/databridge/*"
+  to = "/"
+  status = 301
+  force = true
